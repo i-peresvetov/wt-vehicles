@@ -1,0 +1,32 @@
+@use "/src/styles/variables.scss" as *;
+
+.item {
+    width: 120px;
+    height: 48px;
+    border: red 1px solid;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+    // z-index: 1;
+
+    color: white;
+    
+    &__wrapper--own {
+        background-image: url('../../assets/Item_own.png');
+        flex-grow: 1;
+    }
+
+    &__wrapper--prem {
+        background-image: url('../../assets/Item_prem.png');
+        flex-grow: 1;
+    }
+
+    &__image {
+        position: absolute;
+        // z-index: 0;
+        height: 100%;
+        img {
+            height: 100%;
+        }
+    }
+}
