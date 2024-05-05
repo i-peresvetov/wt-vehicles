@@ -3,8 +3,6 @@ import React from "react"
 import { Vehicle } from "../../api/types"
 
 import styles from "./VehicleItem.module.scss"
-import ownBackground from "../../assets/Item_own.png"
-import premBackground from "../../assets/Item_prem.png"
 
 type VehicleItemProps = {
   vehicle: Vehicle
@@ -16,6 +14,9 @@ const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle }) => {
     realistic_br,
     images: { techtree },
   } = vehicle
+
+  const real_br = Number.isInteger(Number(realistic_br)) ? `${realistic_br}.0` : realistic_br
+
   return (
     <div className={styles.item}>
       <div
@@ -26,9 +27,13 @@ const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle }) => {
         <div className={styles.item__image}>
           <img src={`http://${techtree}`} alt={identifier} />
         </div>
-        <div>
-          <div>{identifier}</div>
-          <div>{realistic_br}</div>
+        <div className={styles.item__text}>
+          <div>
+            <span className={styles.item__id}>{identifier}</span>
+          </div>
+          <div>
+            <span>{real_br}</span>
+          </div>
         </div>
       </div>
     </div>

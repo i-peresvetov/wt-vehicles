@@ -1,0 +1,11 @@
+@use "/src/styles/variables.scss" as *;
+
+.br {
+    width: 200px; // ВРЕМЕННО
+    & ul {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+    }
+  }

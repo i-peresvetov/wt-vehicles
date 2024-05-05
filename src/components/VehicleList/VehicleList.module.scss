@@ -1,6 +1,12 @@
 @use "/src/styles/variables.scss" as *;
 
 .list {
-    // width: 120px;
-    // height: 48px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    
+    li {
+        margin: 5px;
+    }
 }

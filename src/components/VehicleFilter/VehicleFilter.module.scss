@@ -1,0 +1,21 @@
+@use "/src/styles/variables.scss" as *;
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  // border: 1px black solid;
+
+  & fieldset {
+    flex-grow: 1;
+  }
+
+  // &__br {
+  //   width: 200px; // ВРЕМЕННО
+  //   & ul {
+  //     display: flex;
+  //     flex-wrap: wrap;
+  //     justify-content: center;
+  //     align-items: center;
+  //   }
+  // }
+}
