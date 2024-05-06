@@ -28,6 +28,7 @@ export type VehicleTypes =
   | "destroyer"
   | "torpedogunboat"
   | "ship"
+  | "gunboat"
 
 enum VehicleRank {
   rank1 = 1,
