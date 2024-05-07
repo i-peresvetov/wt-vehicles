@@ -7,7 +7,7 @@ import { VehiclesResponse, VehiclesRequest } from "./types"
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://wtvehiclesapi.sgambe.serv00.net/api/",
+    baseUrl: "https://wtvehiclesapi.sgambe.serv00.net/api/",
     // prepareHeaders: (headers, { getState }) => {
     //   const token = (getState() as RootState).app.authToken
     //   if (token) {
