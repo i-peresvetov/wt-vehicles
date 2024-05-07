@@ -62,27 +62,6 @@ export type Vehicle = {
   }
 }
 
-// export type VehicleUntyped = {
-//   identifier: string
-//   country: string
-//   vehicle_type: string
-//   era: number
-//   arcade_br: number
-//   realistic_br: number
-//   simulator_br: number
-//   event: null | string
-//   release_date: null | string
-//   is_premium: boolean
-//   is_gift: boolean
-//   value: number
-//   req_exp: number
-//   ge_cost: number
-//   images: {
-//     image: string
-//     techtree: string
-//   }
-// }
-
 export type VehiclesRequest = {
   limit?: number
   page?: number

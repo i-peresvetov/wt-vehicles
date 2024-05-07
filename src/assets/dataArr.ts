@@ -1,3 +1,5 @@
+import { GameMode } from "../redux/app/types"
+
 enum CountriesEnum {
   usa = "usa",
   britain = "britain",
@@ -56,6 +58,12 @@ export const languageArr = [
   { value: "en", locales: { ru: "Английский", en: "English" } },
 ]
 
+export const gameModeArr = [
+  { value: GameMode.arcade, locales: { ru: "Аркада", en: "Arcade" } },
+  { value: GameMode.realistic, locales: { ru: "Релистичный", en: "Realistic" } },
+  { value: GameMode.simulator, locales: { ru: "Симуляторный", en: "Simulator" } },
+]
+
 export const localize = {
   nation: { ru: "Нация", en: "Nation" },
   br: { ru: "Боевой рейтинг", en: "Battle raiting" },
@@ -67,4 +75,5 @@ export const localize = {
   clear: { ru: "Очистить", en: "Clear" },
   all: { ru: "Все", en: "All" },
   language: { ru: "Язык", en: "Language" },
+  mode: { ru: "Режим", en: "Game mode" },
 }

@@ -3,18 +3,19 @@ import { useDispatch, useSelector } from "react-redux"
 
 import VehicleFilterChekbox from "../../VehicleFilterChekbox"
 
-import { setFilterBr, setFilterBrAll } from "../../../redux/app/slice"
+import { setFilterBr, setFilterBrAll, setGameMode } from "../../../redux/app/slice"
 import { selectFilters, selectLang } from "../../../redux/app/selectors"
 
-import { brArr, localize } from "../../../assets/dataArr"
+import { brArr, gameModeArr, localize } from "../../../assets/dataArr"
 
 import styles from "./FilterBR.module.scss"
+import VehicleFilterRadio from "../../VehicleFilterRadio"
 
 const FilterBR: React.FC = () => {
-  const dispatch = useDispatch()  
+  const dispatch = useDispatch()
   const lang = useSelector(selectLang)
-  const { filterBr } = useSelector(selectFilters)
-  const { br, clear, all } = localize
+  const { filterBr, gameMode } = useSelector(selectFilters)
+  const { br, clear, all, mode } = localize
 
   return (
     <fieldset className={styles.br}>
@@ -48,6 +49,42 @@ const FilterBR: React.FC = () => {
       >
         {all[lang]}
       </button>
+
+      <fieldset>
+        <legend>{mode[lang]}</legend>
+        <ul>
+          {gameModeArr.map((mode) => (
+            <li>
+              <VehicleFilterRadio
+                value={mode.value}
+                label={mode.locales[lang]}
+                radioName="gameMode"
+                state={gameMode}
+                changeFunc={() => {dispatch(setGameMode(mode.value))}}
+              />
+            </li>
+          ))}
+        </ul>
+
+        {/* 
+      {radioArr.map((item, index) => (
+        <li key={index}>
+          <VehicleFilterRadio
+            value={item.value}
+            label={item.locales[lang]}
+            radioName="prem"
+            state={filterPrem}
+            changeFunc={(e: ChangeEvent<HTMLInputElement>) => {
+              if (e.target.value === "true" || e.target.value === "false") {
+                dispatch(setFilterPrem(Boolean(e.target.value === "true")))
+              }
+              if (e.target.value === "undefined") dispatch(setFilterPrem(undefined))
+            }}
+          />
+        </li>
+      ))}
+    </ul> */}
+      </fieldset>
     </fieldset>
   )
 }
