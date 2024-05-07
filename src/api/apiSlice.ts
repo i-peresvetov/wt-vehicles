@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-import { VehiclesResponse, VehiclesRequest } from "./types"
+import { VehiclesResponse, VehiclesRequest, StatsResponse } from "./types"
 
 export const apiSlice = createApi({
   reducerPath: "api",
@@ -23,7 +23,20 @@ export const apiSlice = createApi({
         },
       }),
     }),
+
+    getVehicle: builder.query<void, void>({
+      query: (identifier) => ({
+        url: `/vehicles/${identifier}`,
+      }),
+    }),
+
+    getStats: builder.query<StatsResponse, void>({
+      query: () => ({
+        url: '/vehicles/stats'
+      })
+    }),
+
   }),
 })
 
-export const { useGetVehiclesQuery } = apiSlice
+export const { useGetVehiclesQuery, useGetStatsQuery } = apiSlice

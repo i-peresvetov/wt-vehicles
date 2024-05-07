@@ -73,3 +73,12 @@ export type VehiclesRequest = {
 }
 
 export type VehiclesResponse = Vehicle[]
+
+export type StatsResponse = StatsResponseCountry[]
+
+type StatsResponseCountry = {
+  country: Countries
+  total_value: number
+  total_req_exp: number
+  total_vehicles: number
+}

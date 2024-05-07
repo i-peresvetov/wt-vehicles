@@ -1,21 +1,26 @@
 import React from "react"
+import { useSelector } from "react-redux"
+
+import VehicleItem from "../VehicleItem"
 
 import { Vehicle } from "../../api/types"
+import { GameMode } from "../../redux/app/types"
+import { selectFilters, selectLang, selectSorting } from "../../redux/app/selectors"
+
+import { localize } from "../../assets/dataArr"
 
 import styles from "./VehicleList.module.scss"
-import VehicleItem from "../VehicleItem"
-import { useSelector } from "react-redux"
-import { selectFilters, selectSorting } from "../../redux/app/selectors"
-import { GameMode } from "../../redux/app/types"
 
 type VehicleListProps = {
   vehicles: Vehicle[]
 }
 
 const VehicleList: React.FC<VehicleListProps> = ({ vehicles }) => {
+  const { found } = localize
   const { filterNation, filterPrem, filterGift, filterBr, filterRank, gameMode } =
     useSelector(selectFilters)
   const sorting = useSelector(selectSorting)
+  const lang = useSelector(selectLang)
 
   const vehiclesFiltered = vehicles.filter((vehicle) => {
     let premFilterResult: boolean = true
@@ -56,7 +61,14 @@ const VehicleList: React.FC<VehicleListProps> = ({ vehicles }) => {
     </li>
   ))
 
-  return <ul className={styles.list}>{vehiclesList}</ul>
+  return (
+    <>
+      <p className={styles.total}>
+        {found[lang]}: {vehiclesFiltered.length}
+      </p>
+      <ul className={styles.list}>{vehiclesList}</ul>
+    </>
+  )
 }
 
 export default VehicleList

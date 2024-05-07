@@ -1,5 +1,9 @@
 @use "/src/styles/variables.scss" as *;
 
+.total {
+    text-align: center;
+}
+
 .list {
     display: flex;
     flex-wrap: wrap;

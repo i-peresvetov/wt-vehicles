@@ -76,4 +76,7 @@ export const localize = {
   all: { ru: "Все", en: "All" },
   language: { ru: "Язык", en: "Language" },
   mode: { ru: "Режим", en: "Game mode" },
+  loading: { ru: "Загрузка...", en: "Loading..." },
+  total: {ru: 'Всего техники в базе', en: "Total vehicles in base"},
+  found: {ru:'Найдено', en: 'Found'},
 }
