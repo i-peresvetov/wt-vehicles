@@ -4,10 +4,12 @@ import { useDispatch } from 'react-redux'
 import { apiSlice } from '../api/apiSlice'
 
 import app from './app/slice'
+import database from './database/slice'
 
 const store = configureStore({
   reducer: {
     app,
+    database,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(apiSlice.middleware),

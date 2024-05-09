@@ -1,61 +1,61 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React, { useEffect } from "react"
+import { useDispatch, useSelector } from "react-redux"
 
 import VehicleItem from "../VehicleItem"
 
-import { Vehicle } from "../../api/types"
-import { GameMode } from "../../redux/app/types"
 import { selectFilters, selectLang, selectSorting } from "../../redux/app/selectors"
+import { applyFilters, applySorting } from "../../utils/filterDb"
 
 import { localize } from "../../assets/dataArr"
+import { fakeDb } from "../../api/fakeApi"
 
 import styles from "./VehicleList.module.scss"
+import { useGetVehiclesQuery, useLazyGetVehiclesQuery } from "../../api/apiSlice"
+import { addVehicles } from "../../redux/database/slice"
+import { selectVehicles } from "../../redux/database/selectors"
 
-type VehicleListProps = {
-  vehicles: Vehicle[]
-}
+const VehicleList: React.FC = () => {
+  const dispatch = useDispatch()
+  const vehiclesDb = useSelector(selectVehicles)
+  // const {
+  //   data: vehiclesData,
+  //   isLoading: vehiclesIsLoading,
+  //   isSuccess: vehiclesIsSuccess,
+  // } = useGetVehiclesQuery({ limit: 200 })
+  const [triggerVehiclesLoading, vehicleLoadingResult] = useLazyGetVehiclesQuery()
+  const { data, isLoading, isSuccess } = vehicleLoadingResult
 
-const VehicleList: React.FC<VehicleListProps> = ({ vehicles }) => {
+  useEffect(()=>{
+    let fetchPage = 0
+    // while(vehiclesDb.length < 400) {
+    //   triggerVehiclesLoading({limit: 200, page: fetchPage})
+    //   if (isSuccess) dispatch(addVehicles(data))
+    //   fetchPage++
+    // }
+  }, [])
+
+  // const vehiclesData = fakeDb
+  const vehiclesData = vehiclesDb
+
   const { found } = localize
-  const { filterNation, filterPrem, filterGift, filterBr, filterRank, gameMode } =
-    useSelector(selectFilters)
+  const appFilters = useSelector(selectFilters)
   const sorting = useSelector(selectSorting)
   const lang = useSelector(selectLang)
 
-  const vehiclesFiltered = vehicles.filter((vehicle) => {
-    let premFilterResult: boolean = true
-    if (filterPrem !== undefined) premFilterResult = vehicle.is_premium === filterPrem
+  // useEffect(() => {
+  //   if (vehiclesIsSuccess) {
+  //     dispatch(addVehicles(vehiclesData))
+  //     console.log(vehiclesData.length)
+  //     console.log(vehiclesDb.length)
+  //   }
+  // }, [vehiclesIsSuccess])
 
-    let giftFilterResult: boolean = true
-    if (filterGift !== undefined) giftFilterResult = vehicle.is_gift === filterGift
+  // if (vehiclesIsLoading) return <p>ЗАГРУЗКА...</p>
 
-    let brFilterResult: boolean = filterBr.includes(vehicle.realistic_br)
-    if (gameMode === GameMode.arcade) brFilterResult = filterBr.includes(vehicle.arcade_br)
-    if (gameMode === GameMode.simulator) brFilterResult = filterBr.includes(vehicle.simulator_br)
+  const vehiclesFiltered = applyFilters(vehiclesData!, appFilters)
+  const vehiclesFilteredAndSorted = applySorting(vehiclesFiltered, sorting, appFilters.gameMode)
 
-    return (
-      filterNation[vehicle.country] &&
-      premFilterResult &&
-      giftFilterResult &&
-      brFilterResult &&
-      filterRank.includes(vehicle.era)
-    )
-  })
-
-  if (sorting === "br") {
-    vehiclesFiltered.sort((a, b) => {
-      if (a.realistic_br > b.realistic_br) return 1
-      if (gameMode === GameMode.arcade && a.arcade_br > b.arcade_br) return 1
-      if (gameMode === GameMode.simulator && a.simulator_br > b.simulator_br) return 1
-      return -1
-    })
-  }
-
-  if (sorting === "name") {
-    vehiclesFiltered.sort((a, b) => a.identifier.localeCompare(b.identifier))
-  }
-
-  const vehiclesList = vehiclesFiltered.map((vehicle) => (
+  const vehiclesList = vehiclesFilteredAndSorted.map((vehicle) => (
     <li key={vehicle.identifier}>
       <VehicleItem vehicle={vehicle} />
     </li>

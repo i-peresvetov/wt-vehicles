@@ -8,6 +8,7 @@ import { setSorting } from "../../../redux/app/slice"
 import { localize, sortArr } from "../../../assets/dataArr"
 
 import styles from "./SortVehicles.module.scss"
+import { SortingType } from "../../../redux/app/types"
 
 const SortVehicles: React.FC = () => {
   const dispatch = useDispatch()
@@ -27,7 +28,7 @@ const SortVehicles: React.FC = () => {
               radioName="sort"
               state={sorting}
               changeFunc={(e: ChangeEvent<HTMLInputElement>) => {
-                if (e.target.value === "br" || e.target.value === "name") {
+                if (e.target.value === SortingType.br || e.target.value === SortingType.name) {
                   dispatch(setSorting(e.target.value))
                 }
               }}

@@ -22,7 +22,7 @@ const FilterBR: React.FC = () => {
       <legend>{br[lang]}</legend>
       <ul>
         {brArr.map((br) => (
-          <li>
+          <li key={br}>
             <VehicleFilterChekbox
               labelText={Number.isInteger(br) ? `${br}.0` : String(br)}
               value={br}
@@ -54,13 +54,15 @@ const FilterBR: React.FC = () => {
         <legend>{mode[lang]}</legend>
         <ul>
           {gameModeArr.map((mode) => (
-            <li>
+            <li key={mode.value}>
               <VehicleFilterRadio
                 value={mode.value}
                 label={mode.locales[lang]}
                 radioName="gameMode"
                 state={gameMode}
-                changeFunc={() => {dispatch(setGameMode(mode.value))}}
+                changeFunc={() => {
+                  dispatch(setGameMode(mode.value))
+                }}
               />
             </li>
           ))}

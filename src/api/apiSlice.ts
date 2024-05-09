@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-import { VehiclesResponse, VehiclesRequest, StatsResponse } from "./types"
+import { VehiclesRequest, StatsResponse, Vehicle } from "./types"
 
 export const apiSlice = createApi({
   reducerPath: "api",
@@ -9,7 +9,7 @@ export const apiSlice = createApi({
   }),
 
   endpoints: (builder) => ({
-    getVehicles: builder.query<VehiclesResponse, VehiclesRequest>({
+    getVehicles: builder.query<Vehicle[], VehiclesRequest>({
       query: ({ limit, page, country, type, era, isPremium, isGift }) => ({
         url: "/vehicles",
         params: {
@@ -39,4 +39,4 @@ export const apiSlice = createApi({
   }),
 })
 
-export const { useGetVehiclesQuery, useGetStatsQuery } = apiSlice
+export const { useGetVehiclesQuery, useLazyGetVehiclesQuery, useGetStatsQuery } = apiSlice

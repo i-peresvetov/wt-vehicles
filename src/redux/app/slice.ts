@@ -1,5 +1,5 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit"
-import { AppSliceState, FilterNationObj, GameMode, RadioFilterType } from "./types"
+import { AppSliceState, FilterNationObj, GameMode, RadioFilterType, SortingType } from "./types"
 
 const initialState: AppSliceState = {
   filter: {
@@ -20,12 +20,12 @@ const initialState: AppSliceState = {
       7.3, 7.7, 8.0, 8.3, 8.7, 9.0, 9.3, 9.7, 10.0, 10.3, 10.7, 11.0, 11.3, 11.7, 12.0, 12.3, 12.7,
     ],
     gameMode: GameMode.realistic,
-    filterRank: [3, 4, 5, 6, 7, 8],
+    filterRank: [3],
     filterType: undefined,
     filterPrem: undefined,
     filterGift: undefined,
   },
-  sort: "br",
+  sort: SortingType.br,
   lang: "ru",
 }
 
@@ -96,7 +96,7 @@ export const appSlice = createSlice({
       state.filter.filterGift = action.payload
     },
 
-    setSorting: (state, action: PayloadAction<"br" | "name">) => {
+    setSorting: (state, action: PayloadAction<SortingType>) => {
       state.sort = action.payload
     },
 

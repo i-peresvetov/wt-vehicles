@@ -2,4 +2,7 @@
 
 .stats {
     text-align: center;
+    & li {
+        display: inline;
+    }
 }

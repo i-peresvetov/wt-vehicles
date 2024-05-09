@@ -1,23 +1,30 @@
 import { VehicleTypes } from "../../api/types"
 
 export enum GameMode {
-  realistic = 'realistic',
-  arcade = 'arcade',
-  simulator = 'simulator',
+  realistic = "realistic",
+  arcade = "arcade",
+  simulator = "simulator",
+}
+
+export enum SortingType {
+  br = 'br',
+  name = 'name',
 }
 
 export type AppSliceState = {
-  filter: {
-    filterNation: FilterNationObj
-    filterBr: number[]
-    filterRank: number[]
-    filterType: VehicleTypes | undefined
-    filterPrem: RadioFilterType
-    filterGift: RadioFilterType
-    gameMode: GameMode
-  }
-  sort: "br" | "name"
+  filter: AppFilters
+  sort: SortingType
   lang: "ru" | "en"
+}
+
+export type AppFilters = {
+  filterNation: FilterNationObj
+  filterBr: number[]
+  filterRank: number[]
+  filterType: VehicleTypes | undefined
+  filterPrem: RadioFilterType
+  filterGift: RadioFilterType
+  gameMode: GameMode
 }
 
 export type FilterNationObj = {

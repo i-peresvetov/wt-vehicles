@@ -72,8 +72,6 @@ export type VehiclesRequest = {
   isGift?: 0 | 1
 }
 
-export type VehiclesResponse = Vehicle[]
-
 export type StatsResponse = StatsResponseCountry[]
 
 type StatsResponseCountry = {
