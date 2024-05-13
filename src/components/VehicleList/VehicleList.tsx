@@ -61,12 +61,13 @@ const VehicleList: React.FC = () => {
     getVehicles(11);
     getVehicles(12);
     getVehicles(13);
+    // getVehicles(14);
   }, []);
 
   // const vehiclesData = fakeDb
   const vehiclesData = vehiclesDb;
 
-  const { found } = localize;
+  const { found, onScreen } = localize;
   const appFilters = useSelector(selectFilters);
   const sorting = useSelector(selectSorting);
   const lang = useSelector(selectLang);
@@ -88,7 +89,7 @@ const VehicleList: React.FC = () => {
     appFilters.gameMode,
   );
 
-  const vehiclesList = vehiclesFilteredAndSorted.map((vehicle) => (
+  const vehiclesList = vehiclesFilteredAndSorted.slice(0, 50).map((vehicle) => (
     <li key={vehicle.identifier}>
       <VehicleItem vehicle={vehicle} />
     </li>
@@ -98,6 +99,9 @@ const VehicleList: React.FC = () => {
     <>
       <p className={styles.total}>
         {found[lang]}: {vehiclesFiltered.length}
+      </p>
+      <p className={styles.total}>
+        {onScreen[lang]}: {vehiclesList.length}
       </p>
       <ul className={styles.list}>{vehiclesList}</ul>
     </>
