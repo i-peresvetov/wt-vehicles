@@ -1,14 +1,14 @@
-import React from "react"
-import { useSelector } from "react-redux"
+import React from "react";
+import { useSelector } from "react-redux";
 
-import { selectLang } from "../../../redux/app/selectors"
-import { localize } from "../../../assets/dataArr"
+import { selectLang } from "../../../redux/app/selectors";
+import { localize } from "../../../assets/dataArr";
 
-import styles from "./FilterType.module.scss"
+import styles from "./FilterType.module.scss";
 
 const FilterType: React.FC = () => {
-  const lang = useSelector(selectLang)
-  const { type } = localize
+  const lang = useSelector(selectLang);
+  const { type } = localize;
 
   return (
     <fieldset className={styles.filter__type}>
@@ -21,6 +21,7 @@ const FilterType: React.FC = () => {
             <p>Средний танк</p>
             <p>Тяжёлый танк</p>
             <p>САУ</p>
+            <p>ЗСУ</p>
           </td>
         </tr>
         <tr>
@@ -29,21 +30,41 @@ const FilterType: React.FC = () => {
             <p>Истребитель</p>
             <p>Штурмовик</p>
             <p>Бомбордировщик</p>
+            <p>Пикирующий бомбордировщик</p>
           </td>
         </tr>
         <tr>
-        <td>Флот</td>
+          <td>Флот</td>
           <td>
             <p>Никому не нужен</p>
             <p>Ты что, флотоводец?</p>
           </td>
         </tr>
-        <tr>
-          Эвенты, ядерка
-        </tr>
+        <tr>Эвенты, ядерка</tr>
       </table>
     </fieldset>
-  )
-}
+  );
+};
 
-export default FilterType
+export default FilterType;
+
+// | "lighttank" лёгкий такн
+// | "mediumtank" Средний танк
+// | "heavytank" Тяжёлый танк
+// | "tankdestroyer" САУ
+// | "spaa" ЗСУ
+
+// | "fighter" Истребитель
+// | "stormovik" Штурмовик
+// | "bomber" Бомбордировщик
+// | "divebomber" Пикирующий Бомбордировщик
+
+// | "torpedoboat"
+// | "submarinechaser"
+// | "minelayer"
+// | "transport"
+// | "navalferrybarge"
+// | "destroyer"
+// | "torpedogunboat"
+// | "ship"
+// | "gunboat"
