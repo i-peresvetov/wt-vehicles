@@ -2,9 +2,10 @@ import React from "react";
 import { useSelector } from "react-redux";
 
 import { selectLang } from "../../../redux/app/selectors";
-import { localize } from "../../../assets/dataArr";
+import { localize, typesArr } from "../../../assets/dataArr";
 
 import styles from "./FilterType.module.scss";
+import VehicleFilterChekbox from "../../VehicleFilterChekbox";
 
 const FilterType: React.FC = () => {
   const lang = useSelector(selectLang);
@@ -13,7 +14,10 @@ const FilterType: React.FC = () => {
   return (
     <fieldset className={styles.filter__type}>
       <legend>{type[lang]}</legend>
-      <table>
+      <ul>
+        {/* {typesArr.map()} */}
+      </ul>
+      {/* <table>
         <tr>
           <td>Армия</td>
           <td>
@@ -41,7 +45,7 @@ const FilterType: React.FC = () => {
           </td>
         </tr>
         <tr>Эвенты, ядерка</tr>
-      </table>
+      </table> */}
     </fieldset>
   );
 };
