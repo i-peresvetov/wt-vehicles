@@ -26,7 +26,7 @@ export const countriesArr = [
   { value: CountriesEnum.israel, locales: { ru: "Израиль", en: "Israel" } },
 ]
 
-enum TypesEnum {
+export enum TypesEnum {
   lighttank = "lighttank",
   mediumtank = "mediumtank",
   heavytank = "heavytank",
@@ -50,31 +50,37 @@ enum TypesEnum {
 
 export const typesArr = {
   army: [
-    { value: TypesEnum.lighttank, locales: { ru: "Легкий танк", en: "Light Tank" } },
-    { value: TypesEnum.mediumtank, locales: { ru: "Средний танк", en: "Medium Tank" } },
-    { value: TypesEnum.heavytank, locales: { ru: "Тяжёлый танк", en: "Heavy Tank" } },
-    { value: TypesEnum.tankdestroyer, locales: { ru: "САУ", en: "Tank Destroyer" } },
+    { value: TypesEnum.lighttank, locales: { ru: "Легкий танк", en: "Light tank" } },
+    { value: TypesEnum.mediumtank, locales: { ru: "Средний танк", en: "Medium tank" } },
+    { value: TypesEnum.heavytank, locales: { ru: "Тяжёлый танк", en: "Heavy tank" } },
+    { value: TypesEnum.tankdestroyer, locales: { ru: "САУ", en: "Tank destroyer" } },
     { value: TypesEnum.spaa, locales: { ru: "ЗСУ", en: "SPAA" } },
   ],
   aviation: [
     { value: TypesEnum.fighter, locales: { ru: "Истребитель", en: "Fighter" } },
-    { value: TypesEnum.stormovik, locales: { ru: "Штурмовик", en: "Attack Aircraft" } },
+    { value: TypesEnum.stormovik, locales: { ru: "Штурмовик", en: "Attack aircraft" } },
     { value: TypesEnum.bomber, locales: { ru: "Бомбордировщик", en: "Bomber" } },
     {
       value: TypesEnum.divebomber,
-      locales: { ru: "Пикирующий бомбордировщик", en: "Dive Bomber" },
+      locales: { ru: "Пикирующий бомбордировщик", en: "Dive bomber" },
     },
   ],
   fleet: [
-    { value: TypesEnum.torpedoboat, locales: { ru: "torpedoboat", en: "torpedoboat" } },
-    { value: TypesEnum.submarinechaser, locales: { ru: "submarinechaser", en: "submarinechaser" } },
-    { value: TypesEnum.minelayer, locales: { ru: "minelayer", en: "minelayer" } },
-    { value: TypesEnum.transport, locales: { ru: "transport", en: "transport" } },
-    { value: TypesEnum.navalferrybarge, locales: { ru: "navalferrybarge", en: "navalferrybarge" } },
-    { value: TypesEnum.destroyer, locales: { ru: "destroyer", en: "destroyer" } },
-    { value: TypesEnum.torpedoboat, locales: { ru: "torpedoboat", en: "torpedoboat" } },
-    { value: TypesEnum.ship, locales: { ru: "ship", en: "ship" } },
-    { value: TypesEnum.gunboat, locales: { ru: "gunboat", en: "gunboat" } },
+    { value: TypesEnum.torpedoboat, locales: { ru: "Торпедный катер", en: "Torpedo boat" } },
+    {
+      value: TypesEnum.submarinechaser,
+      locales: { ru: "Морской охотник", en: "Submarine chaser" },
+    },
+    { value: TypesEnum.minelayer, locales: { ru: "Минный заградитель", en: "Minelayer" } },
+    { value: TypesEnum.transport, locales: { ru: "[???] Транспорт", en: "[???] Transport" } },
+    {
+      value: TypesEnum.navalferrybarge,
+      locales: { ru: "Плавбатарея ПВО", en: "Naval ferry barge" },
+    },
+    { value: TypesEnum.destroyer, locales: { ru: "Лёгкий крейсер", en: "Destroyer" } },
+    { value: TypesEnum.torpedogunboat, locales: { ru: "Фрегат", en: "Torpedo gunboat" } },
+    { value: TypesEnum.ship, locales: { ru: "[???] Корабль", en: "[???] Ship" } },
+    { value: TypesEnum.gunboat, locales: { ru: "Артиллерийский катер", en: "Gunboat" } },
   ],
 }
 
@@ -126,16 +132,19 @@ export const localize = {
   nation: { ru: "Нация", en: "Nation" },
   br: { ru: "Боевой рейтинг", en: "Battle raiting" },
   rank: { ru: "Ранг", en: "Rank" },
-  type: { ru: "[в разработке] Тип", en: "[in dev] Type" },
+  type: { ru: "Тип", en: "Type" },
   prem: { ru: "Премиум", en: "Premium" },
   gift: { ru: "Подарок (я хз)", en: "Gift" },
   sort: { ru: "Сортировка", en: "Sort" },
-  clear: { ru: "Очистить", en: "Clear" },
-  all: { ru: "Все", en: "All" },
+  clear: { ru: "❌", en: "❌" },
+  all: { ru: "✅", en: "✅" },
   language: { ru: "Язык", en: "Language" },
   mode: { ru: "Режим", en: "Game mode" },
   loading: { ru: "Загрузка...", en: "Loading..." },
   total: { ru: "Всего техники в базе", en: "Total vehicles in base" },
   found: { ru: "Найдено", en: "Found" },
   onScreen: { ru: "На экране", en: "On screen" },
+  army: { ru: "Армия", en: "Army" },
+  aviation: { ru: "Авиация", en: "Aviation" },
+  fleet: { ru: "Флот", en: "Fleet" },
 }

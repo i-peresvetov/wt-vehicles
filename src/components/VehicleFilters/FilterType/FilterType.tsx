@@ -1,56 +1,145 @@
-import React from "react";
-import { useSelector } from "react-redux";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 
-import { selectLang } from "../../../redux/app/selectors";
-import { localize, typesArr } from "../../../assets/dataArr";
+import { selectFilters, selectLang } from "../../../redux/app/selectors"
+import { TypesEnum, localize, typesArr } from "../../../assets/dataArr"
 
-import styles from "./FilterType.module.scss";
-import VehicleFilterChekbox from "../../VehicleFilterChekbox";
+import styles from "./FilterType.module.scss"
+import VehicleFilterChekbox from "../../VehicleFilterChekbox"
+import {
+  setFilterType,
+  setFilterTypeArmy,
+  setFilterTypeAvia,
+  setFilterTypeFleet,
+} from "../../../redux/app/slice"
 
 const FilterType: React.FC = () => {
-  const lang = useSelector(selectLang);
-  const { type } = localize;
+  const dispatch = useDispatch()
+  const { filterType } = useSelector(selectFilters)
+  const lang = useSelector(selectLang)
+  const { type, all, clear, aviation, army, fleet } = localize
+
+  const setFilter = (type: { value: TypesEnum }) => {
+    dispatch(setFilterType({ ...filterType, [type.value]: !filterType[type.value] }))
+  }
 
   return (
     <fieldset className={styles.filter__type}>
       <legend>{type[lang]}</legend>
-      <ul>
-        {/* {typesArr.map()} */}
-      </ul>
-      {/* <table>
-        <tr>
-          <td>Армия</td>
-          <td>
-            <p>Лёгкий танк</p>
-            <p>Средний танк</p>
-            <p>Тяжёлый танк</p>
-            <p>САУ</p>
-            <p>ЗСУ</p>
-          </td>
-        </tr>
-        <tr>
-          <td>Авиация</td>
-          <td>
-            <p>Истребитель</p>
-            <p>Штурмовик</p>
-            <p>Бомбордировщик</p>
-            <p>Пикирующий бомбордировщик</p>
-          </td>
-        </tr>
-        <tr>
-          <td>Флот</td>
-          <td>
-            <p>Никому не нужен</p>
-            <p>Ты что, флотоводец?</p>
-          </td>
-        </tr>
-        <tr>Эвенты, ядерка</tr>
-      </table> */}
-    </fieldset>
-  );
-};
 
-export default FilterType;
+      <table>
+        <tr>
+          <td>
+            <p>{army[lang]}</p>
+            <button
+              onClick={() => {
+                dispatch(setFilterTypeArmy(true))
+              }}
+            >
+              {all[lang]}
+            </button>
+            <button
+              onClick={() => {
+                dispatch(setFilterTypeArmy(false))
+              }}
+            >
+              {clear[lang]}
+            </button>
+          </td>
+          <td>
+            <ul>
+              {typesArr.army.map((type) => (
+                <li>
+                  <VehicleFilterChekbox
+                    value={type.value}
+                    labelText={type.locales[lang]}
+                    onChange={() => {
+                      setFilter(type)
+                    }}
+                    status={filterType[type.value]}
+                  />
+                </li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>{aviation[lang]}</p>
+            <button
+              onClick={() => {
+                dispatch(setFilterTypeAvia(true))
+              }}
+            >
+              {all[lang]}
+            </button>
+            <button
+              onClick={() => {
+                dispatch(setFilterTypeAvia(false))
+              }}
+            >
+              {clear[lang]}
+            </button>
+          </td>
+          <td>
+            <ul>
+              {typesArr.aviation.map((type) => (
+                <li>
+                  <VehicleFilterChekbox
+                    value={type.value}
+                    labelText={type.locales[lang]}
+                    onChange={() => {
+                      setFilter(type)
+                    }}
+                    status={filterType[type.value]}
+                  />
+                </li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <p>{fleet[lang]}</p>
+            <button
+              onClick={() => {
+                dispatch(setFilterTypeFleet(true))
+              }}
+            >
+              {all[lang]}
+            </button>
+            <button
+              onClick={() => {
+                dispatch(setFilterTypeFleet(false))
+              }}
+            >
+              {clear[lang]}
+            </button>
+          </td>
+          <td>
+            <ul>
+              {typesArr.fleet.map((type) => (
+                <li>
+                  <VehicleFilterChekbox
+                    value={type.value}
+                    labelText={type.locales[lang]}
+                    onChange={() => {
+                      setFilter(type)
+                    }}
+                    status={filterType[type.value]}
+                  />
+                </li>
+              ))}
+            </ul>
+          </td>
+        </tr>
+        {/* <tr>Эвенты, ядерка</tr> */}
+      </table>
+    </fieldset>
+  )
+}
+
+export default FilterType
 
 // | "lighttank" лёгкий такн
 // | "mediumtank" Средний танк

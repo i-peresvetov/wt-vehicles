@@ -40,17 +40,17 @@ const FilterNation: React.FC = () => {
 
     <button
       onClick={() => {
-        dispatch(setFilterNationAll(false))
-      }}
-    >
-      {clear[lang]}
-    </button>
-    <button
-      onClick={() => {
         dispatch(setFilterNationAll(true))
       }}
     >
       {all[lang]}
+    </button>
+    <button
+      onClick={() => {
+        dispatch(setFilterNationAll(false))
+      }}
+    >
+      {clear[lang]}
     </button>
   </fieldset>
   )

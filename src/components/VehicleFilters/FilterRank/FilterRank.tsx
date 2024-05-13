@@ -35,17 +35,17 @@ const FilterRank: React.FC = () => {
 
       <button
         onClick={() => {
-          dispatch(setFilterRankAll(false))
-        }}
-      >
-        {clear[lang]}
-      </button>
-      <button
-        onClick={() => {
           dispatch(setFilterRankAll(true))
         }}
       >
         {all[lang]}
+      </button>
+      <button
+        onClick={() => {
+          dispatch(setFilterRankAll(false))
+        }}
+      >
+        {clear[lang]}
       </button>
     </fieldset>
   )

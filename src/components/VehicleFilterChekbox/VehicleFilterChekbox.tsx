@@ -1,11 +1,11 @@
 import React from "react"
 
-import { Countries } from "../../api/types"
+import { Countries, VehicleTypes } from "../../api/types"
 
 import styles from "./VehicleFilterChekbox.module.scss"
 
 type VehicleFilterChekboxProps = {
-  value: Countries | number
+  value: Countries | number | VehicleTypes
   labelText: string
   onChange: any
   status: boolean

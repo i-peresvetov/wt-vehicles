@@ -37,17 +37,17 @@ const FilterBR: React.FC = () => {
 
       <button
         onClick={() => {
-          dispatch(setFilterBrAll(false))
-        }}
-      >
-        {clear[lang]}
-      </button>
-      <button
-        onClick={() => {
           dispatch(setFilterBrAll(true))
         }}
       >
         {all[lang]}
+      </button>
+      <button
+        onClick={() => {
+          dispatch(setFilterBrAll(false))
+        }}
+      >
+        {clear[lang]}
       </button>
 
       <fieldset>
@@ -67,25 +67,6 @@ const FilterBR: React.FC = () => {
             </li>
           ))}
         </ul>
-
-        {/* 
-      {radioArr.map((item, index) => (
-        <li key={index}>
-          <VehicleFilterRadio
-            value={item.value}
-            label={item.locales[lang]}
-            radioName="prem"
-            state={filterPrem}
-            changeFunc={(e: ChangeEvent<HTMLInputElement>) => {
-              if (e.target.value === "true" || e.target.value === "false") {
-                dispatch(setFilterPrem(Boolean(e.target.value === "true")))
-              }
-              if (e.target.value === "undefined") dispatch(setFilterPrem(undefined))
-            }}
-          />
-        </li>
-      ))}
-    </ul> */}
       </fieldset>
     </fieldset>
   )
