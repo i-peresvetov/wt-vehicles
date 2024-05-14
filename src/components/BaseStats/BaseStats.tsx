@@ -13,6 +13,7 @@ const BaseStats: React.FC = () => {
   const { loading, total, loaded } = localize
 
   const { data: statsData, isLoading: statsIsLoading } = useGetStatsQuery()
+  // const { data: localesData, isLoading: localesIsLoading } = useGetLocalesQuery(lang)
 
   if (statsIsLoading) return <div className={styles.stats}>{loading[lang]}</div>
 
@@ -38,7 +39,9 @@ const BaseStats: React.FC = () => {
       <p>
         {total[lang]}: {vehicleSum}
       </p>
-      <p>{loaded[lang]}: {vehicleDb.length}</p>
+      <p>
+        {loaded[lang]}: {vehicleDb.length}
+      </p>
     </div>
   )
 }

@@ -1,17 +1,18 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react"
 
-import { VehiclesRequest, StatsResponse, Vehicle } from "./types"
+import { VehiclesRequest, StatsResponse, Vehicle, LocalesFile } from "./types"
+import { Language } from "../redux/app/types"
 
 export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: fetchBaseQuery({
-    baseUrl: "https://wtvehiclesapi.sgambe.serv00.net/api/",
+    baseUrl: "https://wtvehiclesapi.sgambe.serv00.net/",
   }),
 
   endpoints: (builder) => ({
     getVehicles: builder.query<Vehicle[], VehiclesRequest>({
       query: ({ limit, page, country, type, era, isPremium, isGift }) => ({
-        url: "/vehicles",
+        url: "api/vehicles",
         params: {
           limit, // 200 max
           page,
@@ -26,17 +27,22 @@ export const apiSlice = createApi({
 
     getVehicle: builder.query<void, void>({
       query: (identifier) => ({
-        url: `/vehicles/${identifier}`,
+        url: `api/vehicles/${identifier}`,
       }),
     }),
 
     getStats: builder.query<StatsResponse, void>({
       query: () => ({
-        url: '/vehicles/stats'
-      })
+        url: "api/vehicles/stats",
+      }),
     }),
 
+    getLocales: builder.query<LocalesFile, Language>({
+      query: (lang) => ({
+        url: `assets/locales/${lang}.json`,
+      }),
+    }),
   }),
 })
 
-export const { useGetVehiclesQuery, useLazyGetVehiclesQuery, useGetStatsQuery } = apiSlice
+export const { useGetVehiclesQuery, useLazyGetVehiclesQuery, useGetStatsQuery, useGetLocalesQuery } = apiSlice

@@ -80,3 +80,18 @@ type StatsResponseCountry = {
   total_req_exp: number
   total_vehicles: number
 }
+
+export type LocalesFile = {
+  vehicles: {
+    [key: string]: string
+  },
+  modifications: {
+    [key: string]: string
+  },
+  presets: {
+    [key: string]: string
+  },
+  weaponry: {
+    [key: string]: string
+  }
+}

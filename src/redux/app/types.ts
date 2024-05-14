@@ -1,6 +1,3 @@
-import { VehicleTypes } from "../../api/types";
-import FilterType from "../../components/VehicleFilters/FilterType";
-
 export enum GameMode {
   realistic = "realistic",
   arcade = "arcade",
@@ -12,10 +9,12 @@ export enum SortingType {
   name = "name",
 }
 
+export type Language = "ru" | "en"
+
 export type AppSliceState = {
   filter: AppFilters;
   sort: SortingType;
-  lang: "ru" | "en";
+  lang: Language;
 };
 
 export type AppFilters = {

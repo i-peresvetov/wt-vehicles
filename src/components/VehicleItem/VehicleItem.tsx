@@ -9,9 +9,10 @@ import { selectFilters } from "../../redux/app/selectors";
 
 type VehicleItemProps = {
   vehicle: Vehicle;
+  localizedName: string | undefined;
 };
 
-const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle }) => {
+const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle, localizedName = 'NOT FOUND' }) => {
   const {
     identifier,
     realistic_br,
@@ -44,7 +45,7 @@ const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle }) => {
         </div>
         <div className={styles.item__text}>
           <div>
-            <span className={styles.item__id}>{identifier}</span>
+            <span className={styles.item__id}>{localizedName}</span>
           </div>
           <div>
             <span>{br_modified}</span>
