@@ -10,7 +10,7 @@ import { selectVehicles } from "../../redux/database/selectors"
 const BaseStats: React.FC = () => {
   const lang = useSelector(selectLang)
   const vehicleDb = useSelector(selectVehicles)
-  const { loading, total } = localize
+  const { loading, total, loaded } = localize
 
   const { data: statsData, isLoading: statsIsLoading } = useGetStatsQuery()
 
@@ -38,7 +38,7 @@ const BaseStats: React.FC = () => {
       <p>
         {total[lang]}: {vehicleSum}
       </p>
-      <p>Загружено: {vehicleDb.length}</p>
+      <p>{loaded[lang]}: {vehicleDb.length}</p>
     </div>
   )
 }

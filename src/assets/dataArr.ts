@@ -72,14 +72,14 @@ export const typesArr = {
       locales: { ru: "Морской охотник", en: "Submarine chaser" },
     },
     { value: TypesEnum.minelayer, locales: { ru: "Минный заградитель", en: "Minelayer" } },
-    { value: TypesEnum.transport, locales: { ru: "[???] Транспорт", en: "[???] Transport" } },
+    // { value: TypesEnum.transport, locales: { ru: "[???] Транспорт", en: "[???] Transport" } },
     {
       value: TypesEnum.navalferrybarge,
       locales: { ru: "Плавбатарея ПВО", en: "Naval ferry barge" },
     },
     { value: TypesEnum.destroyer, locales: { ru: "Лёгкий крейсер", en: "Destroyer" } },
     { value: TypesEnum.torpedogunboat, locales: { ru: "Фрегат", en: "Torpedo gunboat" } },
-    { value: TypesEnum.ship, locales: { ru: "[???] Корабль", en: "[???] Ship" } },
+    // { value: TypesEnum.ship, locales: { ru: "[???] Корабль", en: "[???] Ship" } },
     { value: TypesEnum.gunboat, locales: { ru: "Артиллерийский катер", en: "Gunboat" } },
   ],
 }
@@ -147,4 +147,5 @@ export const localize = {
   army: { ru: "Армия", en: "Army" },
   aviation: { ru: "Авиация", en: "Aviation" },
   fleet: { ru: "Флот", en: "Fleet" },
+  loaded: { ru: "Загруженно", en: "Loaded" },
 }
