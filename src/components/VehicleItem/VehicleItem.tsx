@@ -12,7 +12,10 @@ type VehicleItemProps = {
   localizedName: string | undefined;
 };
 
-const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle, localizedName = 'NOT FOUND' }) => {
+const VehicleItem: React.FC<VehicleItemProps> = ({
+  vehicle,
+  localizedName = "NOT FOUND",
+}) => {
   const {
     identifier,
     realistic_br,
@@ -41,7 +44,7 @@ const VehicleItem: React.FC<VehicleItemProps> = ({ vehicle, localizedName = 'NOT
         }
       >
         <div className={styles.item__image}>
-          <img src={`https://${techtree}`} alt={identifier} />
+          <img src={`https://${techtree}`} alt={localizedName} />
         </div>
         <div className={styles.item__text}>
           <div>

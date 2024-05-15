@@ -1,59 +1,70 @@
-import React, { useEffect } from "react"
-import { useSelector } from "react-redux"
-import { useAppDispatch } from "../../redux/store"
+import React, { useEffect } from "react";
+import { useSelector } from "react-redux";
+import { useAppDispatch } from "../../redux/store";
 
-import VehicleItem from "../VehicleItem"
+import VehicleItem from "../VehicleItem";
 
-import { selectFilters, selectLang, selectSorting } from "../../redux/app/selectors"
-import { applyFilters, applySorting } from "../../utils/filterDb"
+import {
+  selectFilters,
+  selectLang,
+  selectSorting,
+} from "../../redux/app/selectors";
+import { applyFilters, applySorting } from "../../utils/filterDb";
 
-import { localize } from "../../assets/dataArr"
-import { fakeDb } from "../../api/fakeApi"
+import { localize } from "../../assets/dataArr";
+import { fakeDb } from "../../api/fakeApi";
 
-import styles from "./VehicleList.module.scss"
+import styles from "./VehicleList.module.scss";
 // import { useGetVehiclesQuery, useLazyGetVehiclesQuery } from "../../api/apiSlice"
 
-import { selectVehicles } from "../../redux/database/selectors"
-import { fetchVehicles } from "../../redux/database/asyncActions"
-import { useGetLocalesQuery } from "../../api/apiSlice"
+import { selectVehicles } from "../../redux/database/selectors";
+import { fetchVehicles } from "../../redux/database/asyncActions";
+import { useGetLocalesQuery } from "../../api/apiSlice";
 
 const VehicleList: React.FC = () => {
   // const dispatch = useDispatch();
-  const dispatch = useAppDispatch()
-  const vehiclesDb = useSelector(selectVehicles)
-  const { found, onScreen } = localize
-  const appFilters = useSelector(selectFilters)
-  const sorting = useSelector(selectSorting)
-  const lang = useSelector(selectLang)
+  const dispatch = useAppDispatch();
+  const vehiclesDb = useSelector(selectVehicles);
+  const { found, onScreen } = localize;
+  const appFilters = useSelector(selectFilters);
+  const sorting = useSelector(selectSorting);
+  const lang = useSelector(selectLang);
 
-  const {data: localesData} = useGetLocalesQuery(lang)
+  const { data: localesData } = useGetLocalesQuery(lang);
 
   const getVehicles = async (page: number) => {
-    dispatch(fetchVehicles({ limit: 200, page }))
-  }
+    dispatch(fetchVehicles({ limit: 200, page }));
+  };
 
   useEffect(() => {
-    let fetchPage = 0
+    let fetchPage = 0;
     // 1967
     while (fetchPage < 14) {
-      getVehicles(fetchPage)
-      console.log(`загружена страница ${fetchPage}`)
-      fetchPage++
+      getVehicles(fetchPage);
+      fetchPage++;
     }
-  }, [])
+  }, []);
 
   // const vehiclesData = fakeDb
-  const vehiclesData = vehiclesDb
+  const vehiclesData = vehiclesDb;
 
-
-  const vehiclesFiltered = applyFilters(vehiclesData!, appFilters)
-  const vehiclesFilteredAndSorted = applySorting(vehiclesFiltered, sorting, appFilters.gameMode)
+  const vehiclesFiltered = applyFilters(vehiclesData!, appFilters);
+  const vehiclesFilteredAndSorted = applySorting(
+    vehiclesFiltered,
+    sorting,
+    appFilters.gameMode,
+  );
 
   const vehiclesList = vehiclesFilteredAndSorted.slice(0, 50).map((vehicle) => (
     <li key={vehicle.identifier}>
-      <VehicleItem vehicle={vehicle} localizedName={localesData?.vehicles[`${vehicle.identifier}_short`]}/>
+      <VehicleItem
+        vehicle={vehicle}
+        localizedName={
+          localesData?.vehicles[`${vehicle.identifier.toLowerCase()}_short`]
+        }
+      />
     </li>
-  ))
+  ));
 
   return (
     <>
@@ -65,7 +76,7 @@ const VehicleList: React.FC = () => {
       </p>
       <ul className={styles.list}>{vehiclesList}</ul>
     </>
-  )
-}
+  );
+};
 
-export default VehicleList
+export default VehicleList;

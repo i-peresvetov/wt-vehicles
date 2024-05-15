@@ -1,4 +1,5 @@
 import { Vehicle } from "../api/types";
+import { eventVehicles } from "../assets/dataArr";
 import { AppFilters, GameMode, SortingType } from "../redux/app/types";
 
 export const applyFilters = (
