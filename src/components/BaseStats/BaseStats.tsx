@@ -21,7 +21,7 @@ const BaseStats: React.FC = () => {
 
   return (
     <div className={styles.stats}>
-      <ul>
+      {/* <ul>
         {countriesArr.map((country) => (
           <li key={country.value}>
             {" "}
@@ -38,7 +38,7 @@ const BaseStats: React.FC = () => {
       </ul>
       <p>
         {total[lang]}: {vehicleSum}
-      </p>
+      </p> */}
       <p>
         {loaded[lang]}: {vehicleDb.length}
       </p>

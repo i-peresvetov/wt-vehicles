@@ -181,7 +181,7 @@ export const localize = {
   army: { ru: "Армия", en: "Army" },
   aviation: { ru: "Авиация", en: "Aviation" },
   fleet: { ru: "Флот", en: "Fleet" },
-  loaded: { ru: "Загруженно", en: "Loaded" },
+  loaded: { ru: "Техники загружено", en: "Vehicles loaded" },
 };
 
 export const eventVehicles = [

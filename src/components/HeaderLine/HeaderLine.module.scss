@@ -1,0 +1,7 @@
+@use "/src/styles/variables.scss" as *;
+
+.header {
+    background-color: $header-background-color;
+    
+    color: $header-text-color;
+}
