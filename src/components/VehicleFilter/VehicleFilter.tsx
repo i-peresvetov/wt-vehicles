@@ -1,15 +1,14 @@
-import React from "react"
+import React from "react";
 
-import FilterNation from "../VehicleFilters/FilterNation"
-import FilterBR from "../VehicleFilters/FilterBR"
-import FilterRank from "../VehicleFilters/FilterRank"
-import FilterPrem from "../VehicleFilters/FilterPrem"
-import FilterGift from "../VehicleFilters/FilterGift"
-import SortVehicles from "../VehicleFilters/SortVehicles"
-import Language from "../VehicleFilters/Language"
-import FilterType from "../VehicleFilters/FilterType"
+import FilterNation from "../VehicleFilters/FilterNation";
+import FilterBR from "../VehicleFilters/FilterBR";
+import FilterRank from "../VehicleFilters/FilterRank";
+import FilterPrem from "../VehicleFilters/FilterPrem";
+import FilterGift from "../VehicleFilters/FilterGift";
+import SortVehicles from "../VehicleFilters/SortVehicles";
+import FilterType from "../VehicleFilters/FilterType";
 
-import styles from "./VehicleFilter.module.scss"
+import styles from "./VehicleFilter.module.scss";
 
 const VehicleFilter: React.FC = () => {
   return (
@@ -21,9 +20,8 @@ const VehicleFilter: React.FC = () => {
       <FilterPrem />
       {/* <FilterGift/> */}
       <SortVehicles />
-      <Language />
     </div>
-  )
-}
+  );
+};
 
-export default VehicleFilter
+export default VehicleFilter;

@@ -1,37 +1,20 @@
-import React from "react"
+import React from "react";
 
-import styles from "./HeaderLine.module.scss"
-import LangSwitch from "../LangSwitch"
-import BaseStats from "../BaseStats"
+import styles from "./HeaderLine.module.scss";
+import LangSwitch from "../LangSwitch";
+import BaseStats from "../BaseStats";
 
 const HeaderLine: React.FC = () => {
-
   // PTRootUI
-  
+
   return (
     <header className={styles.header}>
-      {/* <ul>
-        <li>[---]: 123</li>
-        <li>[---]: 123</li>
-        <li>[---]: 123</li>
-        <li>[---]: 123</li>
-      </ul> */}
-      {/* <div>Loaded: 1234</div> */}
-      <BaseStats/>
-
-      <LangSwitch/>
-
-      {/* <div>
-        <div>[---] RU ^</div>
-        <div>
-          <ul>
-            <li>[---] RU</li>
-            <li>[---] EN</li>
-          </ul>
-        </div>
-      </div> */}
+      <BaseStats />
+      <div className={styles["header__lang-switch"]}>
+        <LangSwitch />
+      </div>
     </header>
-  )
-}
+  );
+};
 
-export default HeaderLine
+export default HeaderLine;

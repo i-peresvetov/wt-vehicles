@@ -1,5 +1,21 @@
 @use "/src/styles/variables.scss" as *;
 
 .lang-switch {
+  position: relative;
 
+  &:hover,
+  &--open {
+    background-color: $header-hover-color;
+  }
+
+  &__dropdown {
+    position: absolute;
+    background-color: $header-hover-color;
+  }
+
+  &__dropdown-item {
+    &:hover {
+      background-color: $header-active-color;
+    }
+  }
 }

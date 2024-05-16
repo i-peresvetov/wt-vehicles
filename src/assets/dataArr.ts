@@ -1,4 +1,4 @@
-import { GameMode } from "../redux/app/types";
+import { GameMode, Language } from "../redux/app/types";
 
 enum CountriesEnum {
   usa = "usa",
@@ -145,9 +145,12 @@ export const sortArr = [
   { value: "name", locales: { ru: "Название", en: "Name" } },
 ];
 
-export const languageArr = [
-  { value: "ru", locales: { ru: "Русский", en: "Russian" } },
-  { value: "en", locales: { ru: "Английский", en: "English" } },
+export const languageArr: {
+  value: Language;
+  text: string;
+}[] = [
+  { value: "ru", text: "русский" },
+  { value: "en", text: "english" },
 ];
 
 export const gameModeArr = [

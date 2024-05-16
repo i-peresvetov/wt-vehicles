@@ -1,7 +1,16 @@
 @use "/src/styles/variables.scss" as *;
 
 .header {
-    background-color: $header-background-color;
-    
-    color: $header-text-color;
+  position: sticky;
+  top: 0;
+
+  color: $header-text-color;
+
+  background-color: $header-background-color;
+
+  &__lang-switch {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 }
