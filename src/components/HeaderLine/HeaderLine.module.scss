@@ -4,14 +4,19 @@
   position: sticky;
   top: 0;
   z-index: 1000;
+  padding: 5px;
 
+  font-family: 'PTRootUIWebLight';
   color: $header-text-color;
 
   background-color: $header-background-color;
 
   &__lang-switch {
-    position: absolute;
+    // display: flex;
+    // align-items: center;
+    position: absolute;    
     top: 0;
     right: 0;
+    height: 100%;
   }
 }

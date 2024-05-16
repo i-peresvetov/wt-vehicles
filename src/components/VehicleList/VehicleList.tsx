@@ -33,7 +33,7 @@ const VehicleList: React.FC = () => {
   }
 
   useEffect(() => {
-    let fetchPage = 110
+    let fetchPage = 0
     while (fetchPage < 14) {
       getVehicles(fetchPage)
       fetchPage++

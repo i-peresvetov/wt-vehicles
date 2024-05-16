@@ -7,9 +7,9 @@ import { setLanguage } from "../../redux/app/slice"
 
 import styles from "./LangSwitch.module.scss"
 
-// выбор по клику
 // подсветка выбранного
 // закрытие при клике вне контейнера
+// стрелочка вниз/вверх
 
 const LangSwitch: React.FC = () => {
   const dispatch = useDispatch()
@@ -21,14 +21,14 @@ const LangSwitch: React.FC = () => {
       className={styles["lang-switch"] + " " + (open ? styles["lang-switch--open"] : "")}
       onClick={() => setOpen(!open)}
     >
-      <div>
+      <div className={styles["lang-switch__active"]}>
         <div
           className={styles["lang-switch__flag"]}
           style={{
             backgroundImage: `url(${require(`./../../assets/flag/${lang}.svg`)})`,
           }}
-        ></div>{" "}
-        {lang.toUpperCase()} +
+        ></div>
+        <div>{lang.toUpperCase()}</div>
       </div>
       {open && (
         <div className={styles["lang-switch__dropdown"]}>
@@ -45,7 +45,9 @@ const LangSwitch: React.FC = () => {
                     backgroundImage: `url(${require(`./../../assets/flag/${language.value}.svg`)})`,
                   }}
                 ></div>
-                {language.value.toUpperCase()} - {language.text}
+                <div>
+                  {language.value.toUpperCase()} - {language.text}
+                </div>
               </li>
             ))}
           </ul>

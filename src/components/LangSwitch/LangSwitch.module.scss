@@ -2,16 +2,24 @@
 
 .lang-switch {
   position: relative;
+  height: 100%;
+  padding: 0 20px;
 
   &:hover,
   &--open {
     background-color: $header-hover-color;
   }
 
+  &__active {
+    display: flex;
+    align-items: center;
+    height: 100%;
+  }
+
   &__dropdown {
     position: absolute;
     right: 0;
-    
+
     text-wrap: nowrap;
 
     background-color: $header-hover-color;
@@ -20,6 +28,8 @@
   &__dropdown-item {
     display: flex;
     align-items: center;
+    padding: 5px 15px;
+
     &:hover {
       background-color: $header-active-color;
     }
@@ -29,6 +39,7 @@
     display: inline-block;
     width: 1.4em;
     height: 1em;
+    margin-right: 3px;
 
     background-repeat: no-repeat;
   }

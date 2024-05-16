@@ -1,7 +1,7 @@
 import React from "react"
 
 import styles from "./HeaderLine.module.scss"
-import LangSwitch from "../LangSwitch/LangFlag"
+import LangSwitch from "../LangSwitch"
 import BaseStats from "../BaseStats"
 
 const HeaderLine: React.FC = () => {
