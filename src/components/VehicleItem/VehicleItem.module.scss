@@ -1,7 +1,7 @@
 @use "/src/styles/variables.scss" as *;
 
 .item {
-  width: 120px;
+  width: 130px;
   height: 48px;
   //   border: red 1px solid;
   overflow: hidden;
@@ -9,15 +9,17 @@
   position: relative;
 
   &__wrapper--own {
-    background-image: url("../../assets/Item_own.png");
+    background-image: linear-gradient(to top, $grad-regular-bot, $grad-regular-top);
     flex-grow: 1;
     width: 100%;
+    border: $grad-regular-bot 1px solid;
   }
 
   &__wrapper--prem {
-    background-image: url("../../assets/Item_prem.png");
+    background-image: linear-gradient(to top, $grad-prem-bot, $grad-prem-top);
     flex-grow: 1;
     width: 100%;
+    border: $grad-prem-bot 1px solid;
   }
 
   &__image {
@@ -48,5 +50,12 @@
   &__id {
     overflow: hidden;
     text-wrap: nowrap;
+  }
+
+  &__type {
+    display: inline-block;
+    // width: 10px;
+    // height: 10px;
+    // margin-left: 4px;
   }
 }

@@ -52,6 +52,7 @@ const VehicleItem: React.FC<VehicleItemProps> = ({
           </div>
           <div>
             <span>{br_modified}</span>
+            <span className={styles.item__type}></span>
           </div>
         </div>
       </div>
