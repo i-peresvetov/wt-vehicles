@@ -28,112 +28,114 @@ const FilterType: React.FC = () => {
       <legend>{type[lang]}</legend>
 
       <table>
-        <tr>
-          <td>
-            <p>{army[lang]}</p>
-            <button
-              onClick={() => {
-                dispatch(setFilterTypeArmy(true))
-              }}
-            >
-              {all[lang]}
-            </button>
-            <button
-              onClick={() => {
-                dispatch(setFilterTypeArmy(false))
-              }}
-            >
-              {clear[lang]}
-            </button>
-          </td>
-          <td>
-            <ul>
-              {typesArr.army.map((type) => (
-                <li>
-                  <VehicleFilterChekbox
-                    value={type.value}
-                    labelText={type.locales[lang]}
-                    onChange={() => {
-                      setFilter(type)
-                    }}
-                    status={filterType[type.value]}
-                  />
-                </li>
-              ))}
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>{aviation[lang]}</p>
-            <button
-              onClick={() => {
-                dispatch(setFilterTypeAvia(true))
-              }}
-            >
-              {all[lang]}
-            </button>
-            <button
-              onClick={() => {
-                dispatch(setFilterTypeAvia(false))
-              }}
-            >
-              {clear[lang]}
-            </button>
-          </td>
-          <td>
-            <ul>
-              {typesArr.aviation.map((type) => (
-                <li>
-                  <VehicleFilterChekbox
-                    value={type.value}
-                    labelText={type.locales[lang]}
-                    onChange={() => {
-                      setFilter(type)
-                    }}
-                    status={filterType[type.value]}
-                  />
-                </li>
-              ))}
-            </ul>
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <p>{fleet[lang]}</p>
-            <button
-              onClick={() => {
-                dispatch(setFilterTypeFleet(true))
-              }}
-            >
-              {all[lang]}
-            </button>
-            <button
-              onClick={() => {
-                dispatch(setFilterTypeFleet(false))
-              }}
-            >
-              {clear[lang]}
-            </button>
-          </td>
-          <td>
-            <ul>
-              {typesArr.fleet.map((type) => (
-                <li>
-                  <VehicleFilterChekbox
-                    value={type.value}
-                    labelText={type.locales[lang]}
-                    onChange={() => {
-                      setFilter(type)
-                    }}
-                    status={filterType[type.value]}
-                  />
-                </li>
-              ))}
-            </ul>
-          </td>
-        </tr>
-        {/* <tr>Эвенты, ядерка</tr> */}
+        <tbody>
+          <tr>
+            <td>
+              <p>{army[lang]}</p>
+              <button
+                onClick={() => {
+                  dispatch(setFilterTypeArmy(true))
+                }}
+              >
+                {all[lang]}
+              </button>
+              <button
+                onClick={() => {
+                  dispatch(setFilterTypeArmy(false))
+                }}
+              >
+                {clear[lang]}
+              </button>
+            </td>
+            <td>
+              <ul>
+                {typesArr.army.map((type) => (
+                  <li key={type.value}>
+                    <VehicleFilterChekbox
+                      value={type.value}
+                      labelText={type.locales[lang]}
+                      onChange={() => {
+                        setFilter(type)
+                      }}
+                      status={filterType[type.value]}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>{aviation[lang]}</p>
+              <button
+                onClick={() => {
+                  dispatch(setFilterTypeAvia(true))
+                }}
+              >
+                {all[lang]}
+              </button>
+              <button
+                onClick={() => {
+                  dispatch(setFilterTypeAvia(false))
+                }}
+              >
+                {clear[lang]}
+              </button>
+            </td>
+            <td>
+              <ul>
+                {typesArr.aviation.map((type) => (
+                  <li key={type.value}>
+                    <VehicleFilterChekbox
+                      value={type.value}
+                      labelText={type.locales[lang]}
+                      onChange={() => {
+                        setFilter(type)
+                      }}
+                      status={filterType[type.value]}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <p>{fleet[lang]}</p>
+              <button
+                onClick={() => {
+                  dispatch(setFilterTypeFleet(true))
+                }}
+              >
+                {all[lang]}
+              </button>
+              <button
+                onClick={() => {
+                  dispatch(setFilterTypeFleet(false))
+                }}
+              >
+                {clear[lang]}
+              </button>
+            </td>
+            <td>
+              <ul>
+                {typesArr.fleet.map((type) => (
+                  <li key={type.value}>
+                    <VehicleFilterChekbox
+                      value={type.value}
+                      labelText={type.locales[lang]}
+                      onChange={() => {
+                        setFilter(type)
+                      }}
+                      status={filterType[type.value]}
+                    />
+                  </li>
+                ))}
+              </ul>
+            </td>
+          </tr>
+          {/* <tr>Эвенты, ядерка</tr> */}
+        </tbody>
       </table>
     </fieldset>
   )

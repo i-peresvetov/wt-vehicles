@@ -1,8 +1,8 @@
-import React from "react";
+import React from "react"
 
-import styles from "./HeaderLine.module.scss";
-import LangSwitch from "../LangSwitch";
-import BaseStats from "../BaseStats";
+import styles from "./HeaderLine.module.scss"
+import LangSwitch from "../LangSwitch/LangFlag"
+import BaseStats from "../BaseStats"
 
 const HeaderLine: React.FC = () => {
   // PTRootUI
@@ -14,7 +14,7 @@ const HeaderLine: React.FC = () => {
         <LangSwitch />
       </div>
     </header>
-  );
-};
+  )
+}
 
-export default HeaderLine;
+export default HeaderLine

@@ -1,29 +1,35 @@
-import React from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react"
+import { useDispatch, useSelector } from "react-redux"
 
-import { languageArr } from "../../assets/dataArr";
-import { selectLang } from "../../redux/app/selectors";
-import { setLanguage } from "../../redux/app/slice";
+import { languageArr } from "../../assets/dataArr"
+import { selectLang } from "../../redux/app/selectors"
+import { setLanguage } from "../../redux/app/slice"
 
-import styles from "./LangSwitch.module.scss";
+import styles from "./LangSwitch.module.scss"
 
 // выбор по клику
 // подсветка выбранного
 // закрытие при клике вне контейнера
 
 const LangSwitch: React.FC = () => {
-  const dispatch = useDispatch();
-  const lang = useSelector(selectLang);
-  const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch()
+  const lang = useSelector(selectLang)
+  const [open, setOpen] = React.useState(false)
 
   return (
     <div
-      className={
-        styles["lang-switch"] + " " + (open ? styles["lang-switch--open"] : "")
-      }
+      className={styles["lang-switch"] + " " + (open ? styles["lang-switch--open"] : "")}
       onClick={() => setOpen(!open)}
     >
-      <div>[---] {lang.toUpperCase()} +</div>
+      <div>
+        <div
+          className={styles["lang-switch__flag"]}
+          style={{
+            backgroundImage: `url(${require(`./../../assets/flag/${lang}.svg`)})`,
+          }}
+        ></div>{" "}
+        {lang.toUpperCase()} +
+      </div>
       {open && (
         <div className={styles["lang-switch__dropdown"]}>
           <ul>
@@ -33,14 +39,20 @@ const LangSwitch: React.FC = () => {
                 className={styles["lang-switch__dropdown-item"]}
                 onClick={() => dispatch(setLanguage(language.value))}
               >
-                [---] {language.value.toUpperCase()} - {language.text}
+                <div
+                  className={styles["lang-switch__flag"]}
+                  style={{
+                    backgroundImage: `url(${require(`./../../assets/flag/${language.value}.svg`)})`,
+                  }}
+                ></div>
+                {language.value.toUpperCase()} - {language.text}
               </li>
             ))}
           </ul>
         </div>
       )}
     </div>
-  );
-};
+  )
+}
 
-export default LangSwitch;
+export default LangSwitch

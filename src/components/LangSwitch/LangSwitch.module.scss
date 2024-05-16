@@ -10,12 +10,26 @@
 
   &__dropdown {
     position: absolute;
+    right: 0;
+    
+    text-wrap: nowrap;
+
     background-color: $header-hover-color;
   }
 
   &__dropdown-item {
+    display: flex;
+    align-items: center;
     &:hover {
       background-color: $header-active-color;
     }
+  }
+
+  &__flag {
+    display: inline-block;
+    width: 1.4em;
+    height: 1em;
+
+    background-repeat: no-repeat;
   }
 }

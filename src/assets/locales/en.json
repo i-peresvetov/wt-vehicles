@@ -1,0 +1,23 @@
+{
+  "interface": {
+    "nation": "Nation",
+    "br": "Battle raiting",
+    "rank": "Rank",
+    "type": "Type",
+    "prem": "Premium",
+    "gift": "Gift",
+    "sort": "Sort",
+    "clear": "❌",
+    "all": "✅",
+    "language": "Language",
+    "mode": "Game mode",
+    "loading": "Loading...",
+    "total": "Total vehicles in base",
+    "found": "Found",
+    "onScreen": "On screen",
+    "army": "Army",
+    "aviation": "Aviation",
+    "fleet": "Fleet",
+    "loaded": "Vehicles loaded"
+  }
+}
