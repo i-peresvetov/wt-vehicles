@@ -1,0 +1,12 @@
+@use "/src/styles/variables.scss" as *;
+
+.filter {
+  display: flex;
+  justify-content: space-between;
+  // border: 1px black solid;
+
+  & fieldset {
+    flex-grow: 1;
+  }
+
+}
