@@ -10,7 +10,11 @@
   position: relative;
 
   &__wrapper--own {
-    background-image: linear-gradient(to top, $grad-regular-bot, $grad-regular-top);
+    background-image: linear-gradient(
+      to top,
+      $grad-regular-bot,
+      $grad-regular-top
+    );
     // background-image: url('../../assets/f_sq.png');
     background-size: contain;
     flex-grow: 1;
@@ -60,11 +64,42 @@
     width: 12px;
     height: 0.8em;
     margin-left: 4px;
-    background-image: url('../../assets/types/a_a.webp');
+    // background-image: url("../../assets/types/a_a.webp");
     background-repeat: no-repeat;
     background-size: contain;
     background-position: 50% 50%;
 
-    // border: red 1px solid;
+    &--fighter {
+      background-image: url("../../assets/types/a_f.webp");
+    }
+
+    &--stormovik {
+      background-image: url("../../assets/types/a_a.webp");
+    }
+
+    &--bomber,
+    &--divebomber {
+      background-image: url("../../assets/types/a_b.webp");
+    }
+
+    &--lighttank {
+      background-image: url("../../assets/types/t_lt.webp");
+    }
+
+    &--mediumtank {
+      background-image: url("../../assets/types/t_mt.webp");
+    }
+
+    &--heavytank {
+      background-image: url("../../assets/types/t_ht.webp");
+    }
+
+    &--tankdestroyer {
+      background-image: url("../../assets/types/t_td.webp");
+    }
+
+    &--spaa {
+      background-image: url("../../assets/types/t_spaa.webp");
+    }
   }
 }

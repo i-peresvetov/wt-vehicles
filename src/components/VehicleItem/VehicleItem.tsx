@@ -17,11 +17,11 @@ const VehicleItem: React.FC<VehicleItemProps> = ({
   localizedName = "NOT FOUND",
 }) => {
   const {
-    identifier,
     realistic_br,
     arcade_br,
     simulator_br,
     images: { techtree },
+    vehicle_type,
   } = vehicle;
 
   const { gameMode } = useSelector(selectFilters);
@@ -52,7 +52,11 @@ const VehicleItem: React.FC<VehicleItemProps> = ({
           </div>
           <div>
             <span>{br_modified}</span>
-            <span className={styles.item__type}></span>
+            <span
+              className={
+                styles.item__type + " " + styles[`item__type--${vehicle_type}`]
+              }
+            ></span>
           </div>
         </div>
       </div>
