@@ -1,12 +1,27 @@
 @use "/src/styles/variables.scss" as *;
 
 .filter {
-  display: flex;
-  justify-content: space-between;
-  // border: 1px black solid;
+  padding: 10px;
+  color: $main-text-color;
 
   & fieldset {
     flex-grow: 1;
   }
 
+  &__wrapper {
+    max-width: 1000px;
+    margin: auto;
+    border: 1px $main-border-color solid;
+    background-color: $main-popup-color;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__name {
+    padding: 5px 15px;
+
+    &:not(:first-child) {
+      border-left: 1px $main-border-color solid;
+    }
+  }
 }

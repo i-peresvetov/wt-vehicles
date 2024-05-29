@@ -7,14 +7,30 @@ import { setLanguage } from "../../redux/app/slice";
 
 import styles from "./LangSwitch.module.scss";
 
-// подсветка выбранного
-// закрытие при клике вне контейнера
+// подсветка текущего языка
 // стрелочка вниз/вверх
 
 const LangSwitch: React.FC = () => {
   const dispatch = useDispatch();
   const lang = useSelector(selectLang);
+  const switchRef = React.useRef<HTMLDivElement>(null);
   const [open, setOpen] = React.useState(false);
+
+  React.useEffect(() => {
+    function handleClickOutside(event: MouseEvent) {
+      if (
+        switchRef.current &&
+        // !switchRef.current.contains(event.target as Node)
+        !event.composedPath().includes(switchRef.current)
+      ) {
+        setOpen(false);
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [switchRef]);
 
   return (
     <div
@@ -22,6 +38,7 @@ const LangSwitch: React.FC = () => {
         styles["lang-switch"] + " " + (open ? styles["lang-switch--open"] : "")
       }
       onClick={() => setOpen(!open)}
+      ref={switchRef}
     >
       <div className={styles["lang-switch__active"]}>
         <div
