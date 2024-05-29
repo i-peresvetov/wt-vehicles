@@ -101,5 +101,24 @@
     &--spaa {
       background-image: url("../../assets/types/t_spaa.webp");
     }
+
+    &--torpedoboat,
+    &--minelayer,
+    &--ship {
+      background-image: url("../../assets/types/f_torp.webp");
+    }
+
+    &--submarinechaser,
+    &--gunboat {
+      background-image: url("../../assets/types/f_hunt.webp");
+    }
+
+    &--navalferrybarge {
+      background-image: url("../../assets/types/f_spaa.webp");
+    }
+
+    &--torpedogunboat {
+      background-image: url("../../assets/types/f_freg.webp");
+    }
   }
 }

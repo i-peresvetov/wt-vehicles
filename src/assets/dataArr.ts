@@ -109,7 +109,10 @@ export const typesArr = {
       value: TypesEnum.torpedogunboat,
       locales: { ru: "Фрегат", en: "Torpedo gunboat" },
     },
-    // { value: TypesEnum.ship, locales: { ru: "[???] Корабль", en: "[???] Ship" } },
+    {
+      value: TypesEnum.ship,
+      locales: { ru: "[???] Корабль", en: "[???] Ship" },
+    },
     {
       value: TypesEnum.gunboat,
       locales: { ru: "Артиллерийский катер", en: "Gunboat" },
