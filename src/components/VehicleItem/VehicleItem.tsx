@@ -6,6 +6,7 @@ import styles from "./VehicleItem.module.scss";
 import { GameMode } from "../../redux/app/types";
 import { useSelector } from "react-redux";
 import { selectFilters } from "../../redux/app/selectors";
+import { typesArr } from "../../assets/dataArr";
 
 type VehicleItemProps = {
   vehicle: Vehicle;
@@ -34,6 +35,11 @@ const VehicleItem: React.FC<VehicleItemProps> = ({
     ? `${selectedBr}.0`
     : selectedBr;
 
+  // let globaltype as keys of typesArr
+  // for (globaltype in typesArr) {
+  //   typesArr[globaltype]
+  // }
+
   return (
     <div className={styles.item}>
       <div
@@ -53,10 +59,10 @@ const VehicleItem: React.FC<VehicleItemProps> = ({
           <div>
             <span>{br_modified}</span>
             <span
-              className={
-                styles.item__type + " " + styles[`item__type--${vehicle_type}`]
-              }
-            ></span>
+              // className={
+                // styles.item__type + " " + styles[`item__type--${vehicle_type}`]
+              // }
+            >{}</span>
           </div>
         </div>
       </div>

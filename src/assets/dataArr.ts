@@ -1,4 +1,4 @@
-import { GameMode, Language } from "../redux/app/types";
+import { GameMode, Language } from "../redux/app/types"
 
 enum CountriesEnum {
   usa = "usa",
@@ -24,7 +24,7 @@ export const countriesArr = [
   { value: CountriesEnum.france, locales: { ru: "Франция", en: "France" } },
   { value: CountriesEnum.sweden, locales: { ru: "Швеция", en: "Sweden" } },
   { value: CountriesEnum.israel, locales: { ru: "Израиль", en: "Israel" } },
-];
+]
 
 export enum TypesEnum {
   lighttank = "lighttank",
@@ -32,6 +32,10 @@ export enum TypesEnum {
   heavytank = "heavytank",
   tankdestroyer = "tankdestroyer",
   spaa = "spaa",
+
+  // attack_helicopter = "attack_helicopter", // затычка
+  // utility_helicopter = "utility_helicopter", // затычка
+
   fighter = "fighter",
   stormovik = "stormovik",
   bomber = "bomber",
@@ -48,83 +52,121 @@ export enum TypesEnum {
   gunboat = "gunboat",
 }
 
-export const typesArr = {
+type VehicleLocal = {
+  value: TypesEnum
+  icon: string
+  locales: { ru: string; en: string }
+}
+
+export const typesArr: {
+  army: VehicleLocal[]
+  aviation: VehicleLocal[]
+  fleet: VehicleLocal[]
+} = {
   army: [
     {
       value: TypesEnum.lighttank,
+      icon: "┪",
       locales: { ru: "Легкий танк", en: "Light tank" },
     },
     {
       value: TypesEnum.mediumtank,
+      icon: "┬",
       locales: { ru: "Средний танк", en: "Medium tank" },
     },
     {
       value: TypesEnum.heavytank,
+      icon: "┨",
       locales: { ru: "Тяжёлый танк", en: "Heavy tank" },
     },
     {
       value: TypesEnum.tankdestroyer,
+      icon: "┴",
       locales: { ru: "САУ", en: "Tank destroyer" },
     },
-    { value: TypesEnum.spaa, locales: { ru: "ЗСУ", en: "SPAA" } },
+    { value: TypesEnum.spaa, icon: "┰", locales: { ru: "ЗСУ", en: "SPAA" } },
+    // {
+    //   value: TypesEnum.attack_helicopter,
+    //   icon: "┞",
+    //   locales: { ru: "[???] Ударный вертолёт", en: "[???] attack_helicopter" },
+    // },
+    // {
+    //   value: TypesEnum.utility_helicopter,
+    //   icon: "┠",
+    //   locales: { ru: "[???] Универсальный вертолёт", en: "[???] utility_helicopter" },
+    // },
   ],
   aviation: [
-    { value: TypesEnum.fighter, locales: { ru: "Истребитель", en: "Fighter" } },
+    { value: TypesEnum.fighter, icon: "┤", locales: { ru: "Истребитель", en: "Fighter" } },
     {
       value: TypesEnum.stormovik,
+      icon: "┞",
       locales: { ru: "Штурмовик", en: "Attack aircraft" },
     },
     {
       value: TypesEnum.bomber,
+      icon: "┠",
       locales: { ru: "Бомбордировщик", en: "Bomber" },
     },
     {
       value: TypesEnum.divebomber,
+      icon: "┠",
       locales: { ru: "Пикирующий бомбордировщик", en: "Dive bomber" },
     },
   ],
   fleet: [
     {
       value: TypesEnum.torpedoboat,
+      icon: "",
       locales: { ru: "Торпедный катер", en: "Torpedo boat" },
     },
     {
       value: TypesEnum.submarinechaser,
+      icon: "",
       locales: { ru: "Морской охотник", en: "Submarine chaser" },
     },
     {
       value: TypesEnum.minelayer,
+      icon: "",
       locales: { ru: "Минный заградитель", en: "Minelayer" },
     },
-    // { value: TypesEnum.transport, locales: { ru: "[???] Транспорт", en: "[???] Transport" } },
+    // {
+    //   value: TypesEnum.transport,
+    //   icon: "",
+    //   locales: { ru: "[???] Транспорт", en: "[???] Transport" },
+    // },
     {
       value: TypesEnum.navalferrybarge,
+      icon: "",
       locales: { ru: "Плавбатарея ПВО", en: "Naval ferry barge" },
     },
     {
       value: TypesEnum.destroyer,
+      icon: "",
       locales: { ru: "Лёгкий крейсер", en: "Destroyer" },
     },
     {
       value: TypesEnum.torpedogunboat,
+      icon: "",
       locales: { ru: "Фрегат", en: "Torpedo gunboat" },
     },
     {
       value: TypesEnum.ship,
+      icon: "",
       locales: { ru: "[???] Корабль", en: "[???] Ship" },
     },
     {
       value: TypesEnum.gunboat,
+      icon: "",
       locales: { ru: "Артиллерийский катер", en: "Gunboat" },
     },
   ],
-};
+}
 
 export const brArr = [
-  1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 4.3, 4.7, 5.0, 5.3, 5.7,
-  6.0, 6.3, 6.7, 7.0, 7.3, 7.7, 8.0, 8.3, 8.7, 9.0, 9.3, 9.7, 10.0, 10.3, 10.7,
-  11.0, 11.3, 11.7, 12.0, 12.3, 12.7,
-];
+  1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 4.3, 4.7, 5.0, 5.3, 5.7, 6.0, 6.3, 6.7, 7.0,
+  7.3, 7.7, 8.0, 8.3, 8.7, 9.0, 9.3, 9.7, 10.0, 10.3, 10.7, 11.0, 11.3, 11.7, 12.0, 12.3, 12.7,
+]
 
 export const rankArr = [
   { value: 1, text: "I" },
@@ -135,26 +177,26 @@ export const rankArr = [
   { value: 6, text: "VI" },
   { value: 7, text: "VII" },
   { value: 8, text: "VIII" },
-];
+]
 
 export const radioArr = [
   { value: undefined, locales: { ru: "Не важно", en: "Doesn't matter" } },
   { value: true, locales: { ru: "Да", en: "Yes" } },
   { value: false, locales: { ru: "Нет", en: "No" } },
-];
+]
 
 export const sortArr = [
   { value: "br", locales: { ru: "Боевой рейтинг", en: "Battle raiting" } },
   { value: "name", locales: { ru: "Название", en: "Name" } },
-];
+]
 
 export const languageArr: {
-  value: Language;
-  text: string;
+  value: Language
+  text: string
 }[] = [
   { value: "ru", text: "русский" },
   { value: "en", text: "english" },
-];
+]
 
 export const gameModeArr = [
   { value: GameMode.arcade, locales: { ru: "Аркада", en: "Arcade" } },
@@ -166,7 +208,7 @@ export const gameModeArr = [
     value: GameMode.simulator,
     locales: { ru: "Симуляторный", en: "Simulator" },
   },
-];
+]
 
 export const localize = {
   nation: { ru: "Нация", en: "Nation" },
@@ -188,7 +230,7 @@ export const localize = {
   aviation: { ru: "Авиация", en: "Aviation" },
   fleet: { ru: "Флот", en: "Fleet" },
   loaded: { ru: "Техники загружено", en: "Vehicles loaded" },
-};
+}
 
 export const eventVehicles = [
   "us_m18_hellcat_black_cat_race",
@@ -293,4 +335,4 @@ export const eventVehicles = [
   "ucav_recon_micro",
   "ucav_recon_micro_flir",
   "uav_quadcopter",
-];
+]
