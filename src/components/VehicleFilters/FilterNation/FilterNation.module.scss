@@ -1,1 +1,13 @@
 @use "/src/styles/variables.scss" as *;
+
+.filter {
+  &__list {
+    & > * {
+      border-top: 1px solid $main-border-color;
+    }
+
+    & > *:last-child {
+      border-bottom: 1px solid $main-border-color;
+    }
+  }
+}

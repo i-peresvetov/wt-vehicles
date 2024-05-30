@@ -1,16 +1,17 @@
-import React from "react";
+import React from "react"
 
-import { Countries, VehicleTypes } from "../../api/types";
+import { Countries, VehicleTypes } from "../../api/types"
 
-import styles from "./VehicleFilterChekbox.module.scss";
+import styles from "./VehicleFilterChekbox.module.scss"
+import { url } from "inspector"
 
 type VehicleFilterChekboxProps = {
-  value: Countries | number | VehicleTypes;
-  labelText: string;
-  onChange: any;
-  status: boolean;
-  addFlagImage?: boolean;
-};
+  value: Countries | number | VehicleTypes
+  labelText: string
+  onChange: any
+  status: boolean
+  addFlagImage?: boolean
+}
 
 const VehicleFilterChekbox: React.FC<VehicleFilterChekboxProps> = ({
   labelText,
@@ -19,6 +20,15 @@ const VehicleFilterChekbox: React.FC<VehicleFilterChekboxProps> = ({
   status,
   addFlagImage,
 }) => {
+  let imagePath = ""
+  if (addFlagImage) {
+    imagePath = require(`../../assets/flag/country_${value}.webp`)
+  }
+
+  const flagImage = (
+    <span className={styles.line__flag} style={{ backgroundImage: `url(${imagePath})` }}></span>
+  )
+
   return (
     <div className={styles.line}>
       <label htmlFor={labelText} className={styles.line__lable}>
@@ -31,11 +41,11 @@ const VehicleFilterChekbox: React.FC<VehicleFilterChekboxProps> = ({
           id={labelText}
         />
         <span className={styles["filter-line__checkbox"]} />
-
-        {labelText}
+        {imagePath ? flagImage : ""}
+        <span>{labelText}</span>
       </label>
     </div>
-  );
-};
+  )
+}
 
-export default VehicleFilterChekbox;
+export default VehicleFilterChekbox

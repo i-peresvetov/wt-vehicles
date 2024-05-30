@@ -16,8 +16,8 @@ const FilterNation: React.FC = () => {
   const { filterNation } = useSelector(selectFilters);
 
   return (
-    <div>
-      <ul>
+    <div className={styles.filter}>
+      <ul className={styles.filter__list}>
         {countriesArr.map((country) => {
           return (
             <li key={country.value}>
@@ -33,6 +33,7 @@ const FilterNation: React.FC = () => {
                   );
                 }}
                 status={filterNation[country.value]}
+                addFlagImage
               />
             </li>
           );
