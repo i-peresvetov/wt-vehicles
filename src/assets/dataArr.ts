@@ -52,116 +52,136 @@ export enum TypesEnum {
   gunboat = "gunboat",
 }
 
-type VehicleLocal = {
+type VehicleTypeLocalization = {
+  globaltype: "aviation" | "army" | "fleet"
   value: TypesEnum
   icon: string
   locales: { ru: string; en: string }
 }
 
-export const typesArr: {
-  army: VehicleLocal[]
-  aviation: VehicleLocal[]
-  fleet: VehicleLocal[]
-} = {
-  army: [
-    {
-      value: TypesEnum.lighttank,
-      icon: "┪",
-      locales: { ru: "Легкий танк", en: "Light tank" },
-    },
-    {
-      value: TypesEnum.mediumtank,
-      icon: "┬",
-      locales: { ru: "Средний танк", en: "Medium tank" },
-    },
-    {
-      value: TypesEnum.heavytank,
-      icon: "┨",
-      locales: { ru: "Тяжёлый танк", en: "Heavy tank" },
-    },
-    {
-      value: TypesEnum.tankdestroyer,
-      icon: "┴",
-      locales: { ru: "САУ", en: "Tank destroyer" },
-    },
-    { value: TypesEnum.spaa, icon: "┰", locales: { ru: "ЗСУ", en: "SPAA" } },
-    // {
-    //   value: TypesEnum.attack_helicopter,
-    //   icon: "┞",
-    //   locales: { ru: "[???] Ударный вертолёт", en: "[???] attack_helicopter" },
-    // },
-    // {
-    //   value: TypesEnum.utility_helicopter,
-    //   icon: "┠",
-    //   locales: { ru: "[???] Универсальный вертолёт", en: "[???] utility_helicopter" },
-    // },
-  ],
-  aviation: [
-    { value: TypesEnum.fighter, icon: "┤", locales: { ru: "Истребитель", en: "Fighter" } },
-    {
-      value: TypesEnum.stormovik,
-      icon: "┞",
-      locales: { ru: "Штурмовик", en: "Attack aircraft" },
-    },
-    {
-      value: TypesEnum.bomber,
-      icon: "┠",
-      locales: { ru: "Бомбордировщик", en: "Bomber" },
-    },
-    {
-      value: TypesEnum.divebomber,
-      icon: "┠",
-      locales: { ru: "Пикирующий бомбордировщик", en: "Dive bomber" },
-    },
-  ],
-  fleet: [
-    {
-      value: TypesEnum.torpedoboat,
-      icon: "",
-      locales: { ru: "Торпедный катер", en: "Torpedo boat" },
-    },
-    {
-      value: TypesEnum.submarinechaser,
-      icon: "",
-      locales: { ru: "Морской охотник", en: "Submarine chaser" },
-    },
-    {
-      value: TypesEnum.minelayer,
-      icon: "",
-      locales: { ru: "Минный заградитель", en: "Minelayer" },
-    },
-    // {
-    //   value: TypesEnum.transport,
-    //   icon: "",
-    //   locales: { ru: "[???] Транспорт", en: "[???] Transport" },
-    // },
-    {
-      value: TypesEnum.navalferrybarge,
-      icon: "",
-      locales: { ru: "Плавбатарея ПВО", en: "Naval ferry barge" },
-    },
-    {
-      value: TypesEnum.destroyer,
-      icon: "",
-      locales: { ru: "Лёгкий крейсер", en: "Destroyer" },
-    },
-    {
-      value: TypesEnum.torpedogunboat,
-      icon: "",
-      locales: { ru: "Фрегат", en: "Torpedo gunboat" },
-    },
-    {
-      value: TypesEnum.ship,
-      icon: "",
-      locales: { ru: "[???] Корабль", en: "[???] Ship" },
-    },
-    {
-      value: TypesEnum.gunboat,
-      icon: "",
-      locales: { ru: "Артиллерийский катер", en: "Gunboat" },
-    },
-  ],
-}
+export const typesArr: VehicleTypeLocalization[] = [
+  {
+    globaltype: "army",
+    value: TypesEnum.lighttank,
+    icon: "┪",
+    locales: { ru: "Легкий танк", en: "Light tank" },
+  },
+  {
+    globaltype: "army",
+    value: TypesEnum.mediumtank,
+    icon: "┬",
+    locales: { ru: "Средний танк", en: "Medium tank" },
+  },
+  {
+    globaltype: "army",
+    value: TypesEnum.heavytank,
+    icon: "┨",
+    locales: { ru: "Тяжёлый танк", en: "Heavy tank" },
+  },
+  {
+    globaltype: "army",
+    value: TypesEnum.tankdestroyer,
+    icon: "┴",
+    locales: { ru: "САУ", en: "Tank destroyer" },
+  },
+  {
+    globaltype: "army",
+    value: TypesEnum.spaa,
+    icon: "┰",
+    locales: { ru: "ЗСУ", en: "SPAA" },
+  },
+  // {
+  //   globaltype: 'army',
+  //   value: TypesEnum.attack_helicopter,
+  //   icon: "┞",
+  //   locales: { ru: "[???] Ударный вертолёт", en: "[???] attack_helicopter" },
+  // },
+  // {
+  //   globaltype: 'army',
+  //   value: TypesEnum.utility_helicopter,
+  //   icon: "┠",
+  //   locales: { ru: "[???] Универсальный вертолёт", en: "[???] utility_helicopter" },
+  // },
+
+  {
+    globaltype: "aviation",
+    value: TypesEnum.fighter,
+    icon: "┤",
+    locales: { ru: "Истребитель", en: "Fighter" },
+  },
+  {
+    globaltype: "aviation",
+    value: TypesEnum.stormovik,
+    icon: "┞",
+    locales: { ru: "Штурмовик", en: "Attack aircraft" },
+  },
+  {
+    globaltype: "aviation",
+    value: TypesEnum.bomber,
+    icon: "┠",
+    locales: { ru: "Бомбордировщик", en: "Bomber" },
+  },
+  {
+    globaltype: "aviation",
+    value: TypesEnum.divebomber,
+    icon: "┠",
+    locales: { ru: "Пикирующий бомбордировщик", en: "Dive bomber" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.torpedoboat,
+    icon: "␉",
+    locales: { ru: "Торпедный катер", en: "Torpedo boat" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.submarinechaser,
+    icon: "␊",
+    locales: { ru: "Морской охотник", en: "Submarine chaser" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.minelayer,
+    icon: "␉",
+    locales: { ru: "Минный заградитель", en: "Minelayer" },
+  },
+  // {
+  // globaltype: "fleet",
+  //   value: TypesEnum.transport,
+  //   icon: "",
+  //   locales: { ru: "[???] Транспорт", en: "[???] Transport" },
+  // },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.navalferrybarge,
+    icon: "␋",
+    locales: { ru: "Плавбатарея ПВО", en: "Naval ferry barge" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.destroyer,
+    icon: "X",
+    locales: { ru: "Лёгкий крейсер", en: "Destroyer" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.torpedogunboat,
+    icon: "␌",
+    locales: { ru: "Фрегат", en: "Torpedo gunboat" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.ship,
+    icon: "␉",
+    locales: { ru: "[???] Корабль", en: "[???] Ship" },
+  },
+  {
+    globaltype: "fleet",
+    value: TypesEnum.gunboat,
+    icon: "␊",
+    locales: { ru: "Артиллерийский катер", en: "Gunboat" },
+  },
+]
 
 export const brArr = [
   1.0, 1.3, 1.7, 2.0, 2.3, 2.7, 3.0, 3.3, 3.7, 4.0, 4.3, 4.7, 5.0, 5.3, 5.7, 6.0, 6.3, 6.7, 7.0,

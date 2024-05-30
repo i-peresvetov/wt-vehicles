@@ -49,18 +49,22 @@ const FilterType: React.FC = () => {
             </td>
             <td>
               <ul>
-                {typesArr.army.map((type) => (
-                  <li key={type.value}>
-                    <VehicleFilterChekbox
-                      value={type.value}
-                      labelText={type.locales[lang]}
-                      onChange={() => {
-                        setFilter(type)
-                      }}
-                      status={filterType[type.value]}
-                    />
-                  </li>
-                ))}
+                {typesArr.map((type) => {
+                  if (type.globaltype === "army") {
+                    return (
+                      <li key={type.value}>
+                        <VehicleFilterChekbox
+                          value={type.value}
+                          labelText={type.locales[lang]}
+                          onChange={() => {
+                            setFilter(type)
+                          }}
+                          status={filterType[type.value]}
+                        />
+                      </li>
+                    )
+                  }
+                })}
               </ul>
             </td>
           </tr>
@@ -84,18 +88,22 @@ const FilterType: React.FC = () => {
             </td>
             <td>
               <ul>
-                {typesArr.aviation.map((type) => (
-                  <li key={type.value}>
-                    <VehicleFilterChekbox
-                      value={type.value}
-                      labelText={type.locales[lang]}
-                      onChange={() => {
-                        setFilter(type)
-                      }}
-                      status={filterType[type.value]}
-                    />
-                  </li>
-                ))}
+                {typesArr.map((type) => {
+                  if (type.globaltype === "aviation") {
+                    return (
+                      <li key={type.value}>
+                        <VehicleFilterChekbox
+                          value={type.value}
+                          labelText={type.locales[lang]}
+                          onChange={() => {
+                            setFilter(type)
+                          }}
+                          status={filterType[type.value]}
+                        />
+                      </li>
+                    )
+                  }
+                })}
               </ul>
             </td>
           </tr>
@@ -119,18 +127,22 @@ const FilterType: React.FC = () => {
             </td>
             <td>
               <ul>
-                {typesArr.fleet.map((type) => (
-                  <li key={type.value}>
-                    <VehicleFilterChekbox
-                      value={type.value}
-                      labelText={type.locales[lang]}
-                      onChange={() => {
-                        setFilter(type)
-                      }}
-                      status={filterType[type.value]}
-                    />
-                  </li>
-                ))}
+                {typesArr.map((type) => {
+                  if (type.globaltype === "fleet") {
+                    return (
+                      <li key={type.value}>
+                        <VehicleFilterChekbox
+                          value={type.value}
+                          labelText={type.locales[lang]}
+                          onChange={() => {
+                            setFilter(type)
+                          }}
+                          status={filterType[type.value]}
+                        />
+                      </li>
+                    )
+                  }
+                })}
               </ul>
             </td>
           </tr>
