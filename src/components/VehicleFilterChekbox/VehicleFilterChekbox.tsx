@@ -1,21 +1,23 @@
-import React from "react"
+import React from "react";
 
-import { Countries, VehicleTypes } from "../../api/types"
+import { Countries, VehicleTypes } from "../../api/types";
 
-import styles from "./VehicleFilterChekbox.module.scss"
+import styles from "./VehicleFilterChekbox.module.scss";
 
 type VehicleFilterChekboxProps = {
-  value: Countries | number | VehicleTypes
-  labelText: string
-  onChange: any
-  status: boolean
-}
+  value: Countries | number | VehicleTypes;
+  labelText: string;
+  onChange: any;
+  status: boolean;
+  addFlagImage?: boolean;
+};
 
 const VehicleFilterChekbox: React.FC<VehicleFilterChekboxProps> = ({
   labelText,
   value,
   onChange,
-  status
+  status,
+  addFlagImage,
 }) => {
   return (
     <div className={styles.line}>
@@ -29,10 +31,11 @@ const VehicleFilterChekbox: React.FC<VehicleFilterChekboxProps> = ({
           id={labelText}
         />
         <span className={styles["filter-line__checkbox"]} />
+
         {labelText}
       </label>
     </div>
-  )
-}
+  );
+};
 
-export default VehicleFilterChekbox
+export default VehicleFilterChekbox;

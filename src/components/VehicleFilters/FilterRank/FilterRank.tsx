@@ -1,23 +1,22 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import VehicleFilterChekbox from "../../VehicleFilterChekbox"
+import VehicleFilterChekbox from "../../VehicleFilterChekbox";
 
-import { selectFilters, selectLang } from "../../../redux/app/selectors"
-import { setFilterRank, setFilterRankAll } from "../../../redux/app/slice"
-import { rankArr, localize } from "../../../assets/dataArr"
+import { selectFilters, selectLang } from "../../../redux/app/selectors";
+import { setFilterRank, setFilterRankAll } from "../../../redux/app/slice";
+import { rankArr, localize } from "../../../assets/dataArr";
 
-import styles from "./FilterRank.module.scss"
+import styles from "./FilterRank.module.scss";
 
 const FilterRank: React.FC = () => {
-  const dispatch = useDispatch()
-  const lang = useSelector(selectLang)
-  const { rank, clear, all } = localize
-  const { filterRank } = useSelector(selectFilters)
+  const dispatch = useDispatch();
+  const lang = useSelector(selectLang);
+  const { rank, clear, all } = localize;
+  const { filterRank } = useSelector(selectFilters);
 
   return (
-    <fieldset className={styles.rank}>
-      <legend>{rank[lang]}</legend>
+    <div>
       <ul>
         {rankArr.map((rank) => (
           <li key={rank.value}>
@@ -25,7 +24,7 @@ const FilterRank: React.FC = () => {
               labelText={rank.text}
               value={rank.value}
               onChange={() => {
-                dispatch(setFilterRank(rank.value))
+                dispatch(setFilterRank(rank.value));
               }}
               status={filterRank.includes(rank.value)}
             />
@@ -35,20 +34,20 @@ const FilterRank: React.FC = () => {
 
       <button
         onClick={() => {
-          dispatch(setFilterRankAll(true))
+          dispatch(setFilterRankAll(true));
         }}
       >
         {all[lang]}
       </button>
       <button
         onClick={() => {
-          dispatch(setFilterRankAll(false))
+          dispatch(setFilterRankAll(false));
         }}
       >
         {clear[lang]}
       </button>
-    </fieldset>
-  )
-}
+    </div>
+  );
+};
 
-export default FilterRank
+export default FilterRank;

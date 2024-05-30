@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { languageArr } from "../../assets/dataArr";
 import { selectLang } from "../../redux/app/selectors";
 import { setLanguage } from "../../redux/app/slice";
+import { setLocalization } from "../../redux/database/slice";
 
 import styles from "./LangSwitch.module.scss";
 
@@ -13,6 +14,7 @@ import styles from "./LangSwitch.module.scss";
 const LangSwitch: React.FC = () => {
   const dispatch = useDispatch();
   const lang = useSelector(selectLang);
+  const localization = require(`../../assets/locales/${lang}.json`);
   const switchRef = React.useRef<HTMLDivElement>(null);
   const [open, setOpen] = React.useState(false);
 
@@ -31,6 +33,10 @@ const LangSwitch: React.FC = () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [switchRef]);
+
+  React.useEffect(() => {
+    setLocalization(localization);
+  }, [lang]);
 
   return (
     <div

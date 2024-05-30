@@ -1,10 +1,10 @@
-import React from "react"
+import React from "react";
 
-import VehicleList from "./components/VehicleList"
-import VehicleFilter from "./components/VehicleFilter"
-import BaseStats from "./components/BaseStats"
-import HeaderLine from "./components/HeaderLine"
-import VehicleFilterInline from "./components/VehicleFilterInline"
+import VehicleList from "./components/VehicleList";
+import VehicleFilter from "./components/VehicleFilter";
+import BaseStats from "./components/BaseStats";
+import HeaderLine from "./components/HeaderLine";
+import VehicleFilterInline from "./components/VehicleFilterInline";
 
 function App() {
   return (
@@ -12,12 +12,12 @@ function App() {
       <HeaderLine />
       {/* <BaseStats /> */}
       <main>
-        {/* <VehicleFilterInline /> */}
+        <VehicleFilterInline />
         <VehicleFilter />
         <VehicleList />
       </main>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,32 +1,32 @@
-import React from "react"
-import { useDispatch, useSelector } from "react-redux"
+import React from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { selectFilters, selectLang } from "../../../redux/app/selectors"
-import { TypesEnum, localize, typesArr } from "../../../assets/dataArr"
+import { selectFilters, selectLang } from "../../../redux/app/selectors";
+import { TypesEnum, localize, typesArr } from "../../../assets/dataArr";
 
-import styles from "./FilterType.module.scss"
-import VehicleFilterChekbox from "../../VehicleFilterChekbox"
+import styles from "./FilterType.module.scss";
+import VehicleFilterChekbox from "../../VehicleFilterChekbox";
 import {
   setFilterType,
   setFilterTypeArmy,
   setFilterTypeAvia,
   setFilterTypeFleet,
-} from "../../../redux/app/slice"
+} from "../../../redux/app/slice";
 
 const FilterType: React.FC = () => {
-  const dispatch = useDispatch()
-  const { filterType } = useSelector(selectFilters)
-  const lang = useSelector(selectLang)
-  const { type, all, clear, aviation, army, fleet } = localize
+  const dispatch = useDispatch();
+  const { filterType } = useSelector(selectFilters);
+  const lang = useSelector(selectLang);
+  const { type, all, clear, aviation, army, fleet } = localize;
 
   const setFilter = (type: { value: TypesEnum }) => {
-    dispatch(setFilterType({ ...filterType, [type.value]: !filterType[type.value] }))
-  }
+    dispatch(
+      setFilterType({ ...filterType, [type.value]: !filterType[type.value] }),
+    );
+  };
 
   return (
-    <fieldset className={styles.filter__type}>
-      <legend>{type[lang]}</legend>
-
+    <div>
       <table>
         <tbody>
           <tr>
@@ -34,14 +34,14 @@ const FilterType: React.FC = () => {
               <p>{army[lang]}</p>
               <button
                 onClick={() => {
-                  dispatch(setFilterTypeArmy(true))
+                  dispatch(setFilterTypeArmy(true));
                 }}
               >
                 {all[lang]}
               </button>
               <button
                 onClick={() => {
-                  dispatch(setFilterTypeArmy(false))
+                  dispatch(setFilterTypeArmy(false));
                 }}
               >
                 {clear[lang]}
@@ -57,12 +57,12 @@ const FilterType: React.FC = () => {
                           value={type.value}
                           labelText={type.locales[lang]}
                           onChange={() => {
-                            setFilter(type)
+                            setFilter(type);
                           }}
                           status={filterType[type.value]}
                         />
                       </li>
-                    )
+                    );
                   }
                 })}
               </ul>
@@ -73,14 +73,14 @@ const FilterType: React.FC = () => {
               <p>{aviation[lang]}</p>
               <button
                 onClick={() => {
-                  dispatch(setFilterTypeAvia(true))
+                  dispatch(setFilterTypeAvia(true));
                 }}
               >
                 {all[lang]}
               </button>
               <button
                 onClick={() => {
-                  dispatch(setFilterTypeAvia(false))
+                  dispatch(setFilterTypeAvia(false));
                 }}
               >
                 {clear[lang]}
@@ -96,12 +96,12 @@ const FilterType: React.FC = () => {
                           value={type.value}
                           labelText={type.locales[lang]}
                           onChange={() => {
-                            setFilter(type)
+                            setFilter(type);
                           }}
                           status={filterType[type.value]}
                         />
                       </li>
-                    )
+                    );
                   }
                 })}
               </ul>
@@ -112,14 +112,14 @@ const FilterType: React.FC = () => {
               <p>{fleet[lang]}</p>
               <button
                 onClick={() => {
-                  dispatch(setFilterTypeFleet(true))
+                  dispatch(setFilterTypeFleet(true));
                 }}
               >
                 {all[lang]}
               </button>
               <button
                 onClick={() => {
-                  dispatch(setFilterTypeFleet(false))
+                  dispatch(setFilterTypeFleet(false));
                 }}
               >
                 {clear[lang]}
@@ -135,12 +135,12 @@ const FilterType: React.FC = () => {
                           value={type.value}
                           labelText={type.locales[lang]}
                           onChange={() => {
-                            setFilter(type)
+                            setFilter(type);
                           }}
                           status={filterType[type.value]}
                         />
                       </li>
-                    )
+                    );
                   }
                 })}
               </ul>
@@ -149,11 +149,11 @@ const FilterType: React.FC = () => {
           {/* <tr>Эвенты, ядерка</tr> */}
         </tbody>
       </table>
-    </fieldset>
-  )
-}
+    </div>
+  );
+};
 
-export default FilterType
+export default FilterType;
 
 // | "lighttank" лёгкий такн
 // | "mediumtank" Средний танк

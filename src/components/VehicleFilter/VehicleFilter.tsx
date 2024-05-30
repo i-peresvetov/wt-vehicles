@@ -13,10 +13,10 @@ import styles from "./VehicleFilter.module.scss";
 const VehicleFilter: React.FC = () => {
   return (
     <div className={styles.filter}>
-      <FilterNation />
+      {/* <FilterNation /> */}
       <FilterBR />
-      <FilterRank />
-      <FilterType />
+      {/* <FilterRank /> */}
+      {/* <FilterType /> */}
       <FilterPrem />
       {/* <FilterGift/> */}
       <SortVehicles />

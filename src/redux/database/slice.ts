@@ -1,11 +1,14 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
-import { DataBaseSliceState } from "./types";
+import { DataBaseSliceState, LocalizationFile } from "./types";
 import { Vehicle } from "../../api/types";
 import { fetchVehicles } from "./asyncActions";
 import { eventVehicles } from "../../assets/dataArr";
 
 const initialState: DataBaseSliceState = {
   vehicles: [],
+  localization: {
+    interface: {},
+  },
 };
 
 export const databaseSlice = createSlice({
@@ -14,7 +17,9 @@ export const databaseSlice = createSlice({
   reducers: {
     addVehicles: (state, action: PayloadAction<Vehicle[]>) => {
       state.vehicles = state.vehicles.concat(action.payload);
-      // console.log(`добавлено ${action.payload.length} машин в базу`);
+    },
+    setLocalization: (state, action: PayloadAction<LocalizationFile>) => {
+      state.localization = action.payload;
     },
   },
   extraReducers: (builder) => {
@@ -36,6 +41,6 @@ export const databaseSlice = createSlice({
   },
 });
 
-export const { addVehicles } = databaseSlice.actions;
+export const { addVehicles, setLocalization } = databaseSlice.actions;
 
 export default databaseSlice.reducer;
