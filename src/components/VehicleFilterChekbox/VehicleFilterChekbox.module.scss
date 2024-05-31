@@ -3,13 +3,40 @@
 .line {
   text-wrap: nowrap;
 
+  &__lable {
+    display: inline-block;
+    width: 100%;
+    transition: 0.3s;
+    padding: 3px 5px;
+
+    &:hover {
+      color: $filters-text-hover;
+      filter: none;
+    }
+
+    &--active {
+      box-shadow: -3px 0 0px 0px $filters-text-hover;
+    }
+  }
+
   &__flag {
     display: inline-block;
     position: relative;
     top: 1px;
     height: 1em;
     min-width: 1.5em;
+    margin-right: 3px;
+
     background-size: contain;
     background-repeat: no-repeat;
+
+    filter: grayscale(100%);
+    transition: 0.3s;
+
+
+
+    &--active {
+      filter: none;
+    }
   }
 }

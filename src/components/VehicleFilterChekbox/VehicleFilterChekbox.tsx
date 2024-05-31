@@ -26,12 +26,18 @@ const VehicleFilterChekbox: React.FC<VehicleFilterChekboxProps> = ({
   }
 
   const flagImage = (
-    <span className={styles.line__flag} style={{ backgroundImage: `url(${imagePath})` }}></span>
+    <span
+      className={styles.line__flag + " " + (status ? styles["line__flag--active"] : "")}
+      style={{ backgroundImage: `url(${imagePath})` }}
+    ></span>
   )
 
   return (
     <div className={styles.line}>
-      <label htmlFor={labelText} className={styles.line__lable}>
+      <label
+        htmlFor={labelText}
+        className={styles.line__lable + " " + (status ? styles["line__lable--active"] : "")}
+      >
         <input
           type="checkbox"
           className={styles.line__input}
