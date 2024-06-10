@@ -12,12 +12,13 @@ const BaseStats: React.FC = () => {
   const vehicleDb = useSelector(selectVehicles)
   const { loading, total, loaded } = localize
 
-  const { data: statsData, isLoading: statsIsLoading } = useGetStatsQuery()
+  // const { data: statsData, isLoading: statsIsLoading, isError: statsIsError } = useGetStatsQuery()
   // const { data: localesData, isLoading: localesIsLoading } = useGetLocalesQuery(lang)
 
-  if (statsIsLoading) return <div className={styles.stats}>{loading[lang]}</div>
+  // if (statsIsLoading) return <div className={styles.stats}>{loading[lang]}</div>
+  // if (statsIsError) return <div className={styles.stats}>Сетевая ошибка</div>
 
-  const vehicleSum = statsData!.reduce((sum, countyStat) => sum + countyStat.total_vehicles, 0)
+  // const vehicleSum = statsData!.reduce((sum, countyStat) => sum + countyStat.total_vehicles, 0)
 
   return (
     <div className={styles.stats}>
